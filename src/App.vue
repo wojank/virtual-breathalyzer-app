@@ -4,8 +4,10 @@ import SecondStep from './components/SecondStep.vue';
 import ThirdStep from './components/ThirdStep.vue';
 import { ref } from 'vue';
 
-//:Record<string, DefineComponent<{},{},{}>> nie działa :c
-const steps: Record<string, any> = {
+const steps: Record<
+	string,
+	typeof FirstStep | typeof SecondStep | typeof ThirdStep
+> = {
 	FirstStep,
 	SecondStep,
 	ThirdStep,
