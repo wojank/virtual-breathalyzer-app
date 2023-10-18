@@ -1,13 +1,11 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div class="container">
-		<div class="title">
-			<p class="form__title">wybierz rodzaj oraz ilość spożytego alkoholu</p>
-		</div>
+	<p class="title">wybierz rodzaj oraz ilość spożytego alkoholu</p>
 
-		<div class="wrapper type">
-			<label class="form-control__title" for="alkohol">Rodzaj alkoholu</label>
+	<div class="wrap">
+		<div class="form-control wrapper type">
+			<label class="form-control__title" for="alkohol">rodzaj alkoholu</label>
 			<select
 				class="form-control__input-select"
 				id="rodzaj-alkoholu"
@@ -15,10 +13,10 @@
 			>
 				<!--tutaj v-for dla option powinno poleciec-->
 				<option class="form-control__select-option" value="">
-					Wybierz alkohol
+					wybierz alkohol
 				</option>
 				<option class="form-control__select-option" value="radler">
-					Radler
+					Cydr, Radler
 				</option>
 				<option class="form-control__select-option" value="piwojasne">
 					Piwo Jasne
@@ -26,34 +24,32 @@
 				<option class="form-control__select-option" value="piwomocne">
 					Piwo Mocne
 				</option>
-				<option class="form-control__select-option" value="cydr">Cydr</option>
+				<!-- <option class="form-control__select-option" value="cydr">Cydr</option> -->
 				<option class="form-control__select-option" value="winoslodkie">
-					Wino Słodkie
+					Wino
 				</option>
-				<option class="form-control__select-option" value="winopolwytrawne">
-					Wino Półwytrawne
-				</option>
-				<option class="form-control__select-option" value="winowytrawne">
-					Wino Wytrawne
-				</option>
-				<option class="form-control__select-option" value="likier">
-					Likier
-				</option>
+				<!-- <option class="form-control__select-option" value="winopolwytrawne">
+				Wino Półwytrawne
+			</option>
+			<option class="form-control__select-option" value="winowytrawne">
+				Wino Wytrawne
+			</option> -->
+				<!-- <option class="form-control__select-option" value="likier">Likier</option> -->
 				<option class="form-control__select-option" value="nalewki">
-					Nalewki smakowe na bazie wódki
+					Nalewka, Likier
 				</option>
 				<option class="form-control__select-option" value="whiskybrandykoniak">
-					Whisky, Brandy, Koniak
+					Wódka, Whisky, Gin
 				</option>
-				<option class="form-control__select-option" value="wodkagintequila">
-					Wódka, Gin, Tequila
-				</option>
-				<option class="form-control__select-option" value="inny">Inny</option>
+				<!-- <option class="form-control__select-option" value="wodkagintequila">
+				Wódka, Gin, Tequila
+			</option> -->
+				<!-- <option class="form-control__select-option" value="inny">Inny</option> -->
 			</select>
 		</div>
 
 		<div class="form-control power">
-			<label class="form-control__title" for="moc">Moc alkoholu (%)</label>
+			<label class="form-control__title" for="moc">moc alkoholu (%)</label>
 			<input
 				class="form-control__input-number"
 				id="moc"
@@ -64,7 +60,7 @@
 
 		<div class="form-control volume">
 			<label class="form-control__title" for="objetosc"
-				>Objętość porcji (ml)</label
+				>objętość porcji (ml)</label
 			>
 			<input
 				class="form-control__input-number"
@@ -75,7 +71,7 @@
 		</div>
 
 		<div class="form-control amount">
-			<label class="form-control__title" for="ilosc">Ilośc porcji (ml)</label>
+			<label class="form-control__title" for="ilosc">ilośc porcji (ml)</label>
 			<input
 				class="form-control__input-number"
 				id="ilosc"

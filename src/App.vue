@@ -18,11 +18,12 @@ const currentStep = ref('FirstStep');
 
 <template>
 	<section class="container" aria-label="form-card">
+		<!-- progress bar -->
 		<component :is="steps[currentStep]"></component>
 
 		<div class="controls">
 			<button @click="currentStep = 'FirstStep'">Cofnij</button>
-			<button @click="currentStep = 'SecondStep'">Dalej</button>
+			<button @click="currentStep = 'ThirdStep'">Dalej</button>
 		</div>
 	</section>
 </template>
