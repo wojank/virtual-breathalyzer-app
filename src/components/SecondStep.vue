@@ -1,4 +1,31 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+// const receivedType = ref('');
+const receivedPower = ref(0);
+const receivedVolume = ref(0);
+const receiveAmount = ref(0);
+
+// const emit = defineEmits(['firstStepData', 'secondStepData']);
+const emit = defineEmits<{
+	(
+		e: 'secondStepData',
+		receivedPower: number,
+		receivedVolume: number,
+		receivedAmount: number
+	): void;
+	(e: 'firstStepData'): void;
+}>();
+//przerobić na jedną ogólną funkcję?
+const collectData = () => {
+	emit(
+		'secondStepData',
+		receivedPower.value,
+		receivedVolume.value,
+		receiveAmount.value
+	);
+};
+</script>
 
 <template>
 	<p class="title">wybierz rodzaj oraz ilość spożytego alkoholu</p>
@@ -11,7 +38,6 @@
 				id="rodzaj-alkoholu"
 				name="alkohol"
 			>
-				<!--tutaj v-for dla option powinno poleciec-->
 				<option class="form-control__select-option" value="">
 					wybierz alkohol
 				</option>
@@ -24,27 +50,17 @@
 				<option class="form-control__select-option" value="piwomocne">
 					Piwo Mocne
 				</option>
-				<!-- <option class="form-control__select-option" value="cydr">Cydr</option> -->
+
 				<option class="form-control__select-option" value="winoslodkie">
 					Wino
 				</option>
-				<!-- <option class="form-control__select-option" value="winopolwytrawne">
-				Wino Półwytrawne
-			</option>
-			<option class="form-control__select-option" value="winowytrawne">
-				Wino Wytrawne
-			</option> -->
-				<!-- <option class="form-control__select-option" value="likier">Likier</option> -->
+
 				<option class="form-control__select-option" value="nalewki">
 					Nalewka, Likier
 				</option>
 				<option class="form-control__select-option" value="whiskybrandykoniak">
 					Wódka, Whisky, Gin
 				</option>
-				<!-- <option class="form-control__select-option" value="wodkagintequila">
-				Wódka, Gin, Tequila
-			</option> -->
-				<!-- <option class="form-control__select-option" value="inny">Inny</option> -->
 			</select>
 		</div>
 
@@ -55,6 +71,8 @@
 				id="moc"
 				type="number"
 				name="mocalkoholu"
+				v-model="receivedPower"
+				@change="collectData"
 			/>
 		</div>
 
@@ -67,6 +85,8 @@
 				id="objetosc"
 				type="number"
 				name="objetoscalkoholu"
+				v-model="receivedVolume"
+				@change="collectData"
 			/>
 		</div>
 
@@ -77,6 +97,8 @@
 				id="ilosc"
 				type="number"
 				name="iloscporcjialkoholu"
+				v-model="receiveAmount"
+				@change="collectData"
 			/>
 		</div>
 	</div>
