@@ -1,0 +1,26 @@
+.footer {
+	background-color: rgb(180, 177, 177);
+	width: 100%;
+	padding: 30px 0;
+	text-align: center;
+	margin-top: 30px;
+
+	&__paragraph {
+		text-transform: uppercase;
+		font-family: sans-serif;
+		letter-spacing: 5px;
+		font-size: 0.9rem;
+		margin: 0 0 20px 0;
+	}
+
+	&__social {
+		margin: 5px 40px;
+		color: black;
+		transition: all 0.1s ease;
+	}
+
+	&__social:hover {
+		color: rgb(183, 183, 248);
+		cursor: pointer;
+	}
+}

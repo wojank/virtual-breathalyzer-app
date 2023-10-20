@@ -2,6 +2,7 @@
 import FirstStep from './components/FirstStep.vue';
 import SecondStep from './components/SecondStep.vue';
 import ThirdStep from './components/ThirdStep.vue';
+import TheFooter from './components/TheFooter.vue';
 import { ref } from 'vue';
 
 const steps: Record<
@@ -60,6 +61,7 @@ const handleClick = () => {
 			<button @click="handleClick">Test</button>
 		</div>
 	</section>
+	<TheFooter />
 </template>
 
 <style scoped>
