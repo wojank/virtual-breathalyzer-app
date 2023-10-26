@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import './assets/scss/main.scss';
+import router from '../src/router';
 import App from './App.vue';
 
 /* font awesome */
@@ -15,4 +16,7 @@ import {
 /* add icons to the library */
 library.add(faAsterisk, faInstagram, faFacebookF, faXTwitter);
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app');
+createApp(App)
+	.use(router)
+	.component('font-awesome-icon', FontAwesomeIcon)
+	.mount('#app');

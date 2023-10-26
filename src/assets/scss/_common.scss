@@ -21,3 +21,10 @@ button:hover {
 	cursor: pointer;
 	background-color: var(--primary);
 }
+a {
+	font-family: sans-serif;
+}
+a:visited,
+a:active {
+	color: black;
+}
