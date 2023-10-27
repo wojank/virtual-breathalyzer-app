@@ -11,7 +11,10 @@
 					zanim usiądziesz za kierownicą.
 				</p>
 				<button class="content__primary-button">
-					<a class="content__primary-link" href="/kalkulator">Sprawdź</a>
+					<RouterLink class="content__primary-link" to="/calculator"
+						>Sprawdź</RouterLink
+					>
+					<!-- <a class="content__primary-link" href="/kalkulator">Sprawdź</a> -->
 				</button>
 			</div>
 			<!--</div>-->
