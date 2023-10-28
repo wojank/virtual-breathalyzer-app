@@ -3,7 +3,7 @@ import FirstStep from '../components/FirstStep.vue';
 import SecondStep from '../components/SecondStep.vue';
 import ThirdStep from '../components/ThirdStep.vue';
 
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 const steps: Record<
 	string,
@@ -83,19 +83,44 @@ const stepBack = () => {
 		: (currentStep.value = 'FirstStep');
 	//a może to na obiekcie jakoś a nie na currentStep zrobić?
 };
+
+const isActive = ref<boolean>(false);
+
+watch(currentStep, () => {
+	currentStep.value === 'ThirdStep'
+		? (isActive.value = true)
+		: (isActive.value = false);
+	console.log(
+		`currentStep = ${currentStep.value}, isActive = ${isActive.value}`
+	);
+});
+
+watch(isActive, () => {
+	if (isActive) {
+		finalResults();
+	} else {
+		promiles.value = '';
+		grams.value = 0;
+		portions.value = 0;
+		time.value = '';
+		//ten fragment chyba zbędny
+	}
+});
 </script>
 <template>
 	<section class="container" aria-label="form-card">
 		<!-- progress bar -->
-		<component
-			:is="steps[currentStep]"
-			@firstStepData="receiveFirstStepData"
-			@secondStepData="receivedSecondStepData"
-			:promiles="promiles"
-			:grams="grams"
-			:portions="portions"
-			:time="time"
-		></component>
+		<KeepAlive :include="['FirstStep', 'SecondStep']">
+			<component
+				:is="steps[currentStep]"
+				@firstStepData="receiveFirstStepData"
+				@secondStepData="receivedSecondStepData"
+				:promiles="promiles"
+				:grams="grams"
+				:portions="portions"
+				:time="time"
+			></component>
+		</KeepAlive>
 		<!-- może lepiej rozpisać na trzy takie komponenty, by było czytelniej z tymi propsami i metodami-->
 
 		<div class="controls">
