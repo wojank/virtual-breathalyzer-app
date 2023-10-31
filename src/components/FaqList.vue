@@ -26,7 +26,7 @@ const questionsAndAnswers = ref([
 		question: 'Jak unikać kaca?',
 		answer:
 			'Aby uniknąć kaca, pij alkohol umiarkowanie, pij dużo wody między napojami alkoholowymi, jedz przed spożyciem alkoholu, a następnego dnia odpoczywaj i dostarcz organizmowi nawilżenia',
-		status: true,
+		status: false,
 	},
 ]);
 //z tego poziomu będzie click event zmieniający status
@@ -36,10 +36,18 @@ const questionsAndAnswers = ref([
 	<div class="faq">
 		<ul>
 			<li v-for="item in questionsAndAnswers" :key="item.question">
-				<h3 :class="[{ active: item.status }, 'question-main']">
+				<h3
+					:class="[{ active: item.status }, 'question-main']"
+					@click="item.status = !item.status"
+				>
 					{{ item.question }}
+					<font-awesome-icon
+						icon="fa-solid fa-arrow-rotate-right"
+						size="1x"
+						:class="[{ rotate: item.status }, 'question-main__icon']"
+					/>
 				</h3>
-				<FaqItem :answer="item.answer" />
+				<FaqItem :item="item" />
 			</li>
 		</ul>
 	</div>

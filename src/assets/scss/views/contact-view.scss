@@ -5,52 +5,101 @@
 	align-items: center;
 	justify-content: center;
 	width: 700px;
+	font-family: 'Lato', sans-serif;
+
 	// background-color: pink;
 	margin: 0 auto;
 	// text-align: center;
 
 	&__title {
-		font-family: sans-serif;
-		font-size: 3rem;
-		margin: 20px 0;
+		font-size: 4rem;
+		margin: 50px 0;
+		line-height: 1.1;
+		letter-spacing: 0.5px;
+		color: rgb(26, 26, 52);
 	}
 	&__subtitle {
-		// text-align: left;
-		margin: 20px 0;
+		font-weight: 300;
+		margin-bottom: 50px;
+		font-size: 2rem;
+		color: rgb(122, 120, 120);
+	}
+
+	&__description {
+		line-height: 1.5;
+		margin-bottom: 50px;
+		color: rgb(54, 54, 54);
+		letter-spacing: 0.5px;
+	}
+
+	&__link {
+		line-height: 1.5;
+		color: rgb(99, 159, 181) !important;
+		letter-spacing: 0.5px;
+		font-family: inherit;
 	}
 }
 
 .faq {
 	// background-color: rgb(206, 169, 206);
 	width: 90%;
-	font-family: sans-serif;
 }
 
 .question-main {
-	color: rgb(38, 82, 46);
-	background-color: rgb(243, 236, 236);
+	position: relative;
+	color: rgb(99, 159, 181);
+	background-color: rgb(241, 243, 245);
+	letter-spacing: 0.5px;
+	line-height: 1.5;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 10px 20px;
+	font-weight: 400;
+	font-size: 1.2rem;
+	cursor: pointer;
+	margin-bottom: 15px;
+
+	&:hover {
+		background-color: rgb(202, 238, 238);
+	}
+
+	&__icon {
+		position: absolute;
+		top: 15px;
+		right: 20px;
+		transition: transform ease 0.2s;
+	}
 }
 
 .answer {
 	width: 90%;
-	margin: 20px auto;
+	margin: 0 auto;
+	//20px było
+	// padding-bottom: 20px;
 	// background-color: white;
+}
+
+.answer-main {
+	line-height: 1.5;
+	color: rgb(54, 54, 54);
+	letter-spacing: 0.5px;
+	padding-bottom: 20px;
+}
+
+.active {
+	color: rgb(245, 241, 241);
+	background-color: rgb(99, 159, 181);
+
+	&:hover {
+		background-color: rgb(99, 132, 181);
+	}
+}
+
+.rotate {
+	transform: rotate(90deg);
 }
 
 .v-enter-active,
 .v-leave-active {
-	transition: all 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-	opacity: 0;
-	min-height: 0;
-}
-
-.active {
-	color: rgb(186, 186, 186);
-	background-color: rgb(42, 107, 53);
+	transition: height 0.5s ease-in-out;
+	overflow: hidden;
 }
