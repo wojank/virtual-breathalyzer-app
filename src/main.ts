@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
 	faAsterisk,
 	faArrowRotateRight,
+	faPhone,
+	faHouse,
+	faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 import {
 	faInstagram,
@@ -22,7 +25,10 @@ library.add(
 	faArrowRotateRight,
 	faInstagram,
 	faFacebookF,
-	faXTwitter
+	faXTwitter,
+	faPhone,
+	faHouse,
+	faEnvelope
 );
 
 createApp(App)
