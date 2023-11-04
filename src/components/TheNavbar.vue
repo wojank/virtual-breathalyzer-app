@@ -1,24 +1,41 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router';
+const route = useRoute();
+</script>
 <template>
 	<header class="header">
 		<div class="header__container">
-			<h2 class="header__logo">Logo Kampanii</h2>
+			<RouterLink to="/">
+				<h2 class="header__logo">Logo Kampanii</h2>
+			</RouterLink>
 			<nav>
 				<ul class="header__list">
 					<li class="header__list-items">
-						<RouterLink to="/calculator">Alkomat</RouterLink>
+						<RouterLink
+							:class="[{ active: route.path == '/calculator' }, 'tab']"
+							to="/calculator"
+							>Alkomat</RouterLink
+						>
 					</li>
 					<li class="header__list-items">
-						<RouterLink to="/about">O nas</RouterLink>
+						<RouterLink
+							:class="[{ active: route.path == '/about' }, 'tab']"
+							to="/about"
+							>O nas</RouterLink
+						>
 					</li>
 					<li class="header__list-items">
-						<RouterLink to="/contact">Kontakt</RouterLink>
+						<RouterLink
+							:class="[{ active: route.path == '/contact' }, 'tab']"
+							to="/contact"
+							>Kontakt</RouterLink
+						>
 					</li>
 				</ul>
 			</nav>
 		</div>
 	</header>
 </template>
-<style>
+<style scoped>
 @import '../assets/scss/components/the-navbar.scss';
 </style>

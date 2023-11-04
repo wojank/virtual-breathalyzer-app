@@ -6,9 +6,9 @@
 			<div class="content__primary-box">
 				<h1 class="content__primary-heading">Wirtualny Alkomat</h1>
 				<p class="content__primary-paragraph">
-					Wirtualny alkomat jest częścią kampanii pt. "Stop pijanym kierowcom”.
-					Na naszej stronie możesz sprawdzić zawartość alkoholu w organizmie,
-					zanim usiądziesz za kierownicą.
+					Wirtualny alkomat jest częścią kampanii pt. "Pij odpowiedzialnie”. Na
+					naszej stronie możesz sprawdzić zawartość alkoholu w organizmie, zanim
+					usiądziesz za kierownicą.
 				</p>
 				<button class="content__primary-button">
 					<RouterLink class="content__primary-link" to="/calculator"

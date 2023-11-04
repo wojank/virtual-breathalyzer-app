@@ -108,6 +108,21 @@ watch(isActive, () => {
 });
 </script>
 <template>
+	<!-- <div class="info">
+		<h1>Wirtualny alkomat</h1>
+		<h2>wpisz informacje i sprawdź czy pijesz odpowiedzialnie</h2>
+		<p>
+			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vel,
+			aspernatur sunt fugiat dolore nisi. Voluptatem incidunt harum aperiam
+			excepturi!
+		</p>
+	</div> -->
+	<!-- <h1 class="contact__title">Kalkulator Promili</h1>
+	<h2 class="contact__subtitle">Sprawdź, czy pijesz odpowiedzialnie</h2>
+	<p class="contact__description">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis corrupti
+		nihil doloremque, ipsa commodi suscipit quo fugiat laboriosam molestias est.
+	</p> -->
 	<section class="container" aria-label="form-card">
 		<!-- progress bar -->
 		<KeepAlive :include="['FirstStep', 'SecondStep']">
@@ -132,4 +147,6 @@ watch(isActive, () => {
 		</div>
 	</section>
 </template>
-<style></style>
+<style>
+@import '../assets/scss/views/contact-view.scss';
+</style>
