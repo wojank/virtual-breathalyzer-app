@@ -2,12 +2,16 @@
 import { ref } from 'vue';
 // import type { Ref } from 'vue';
 
-const receivedGender = ref('');
-const receivedWeight = ref(60);
+const receivedGender = ref<string>('');
+const receivedWeight = ref<number | undefined>();
 
 // const emit = defineEmits(['firstStepData', 'secondStepData']);
 const emit = defineEmits<{
-	(e: 'firstStepData', receivedGender: string, receivedWeight: number): void;
+	(
+		e: 'firstStepData',
+		receivedGender: string,
+		receivedWeight: number | undefined
+	): void;
 	(e: 'secondStepData'): void;
 }>();
 

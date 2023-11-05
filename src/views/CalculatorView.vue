@@ -15,7 +15,7 @@ const steps: Record<
 };
 const currentStep = ref('FirstStep');
 
-const gender = ref<string>('');
+const gender = ref<string | any>('');
 const weight = ref<number>(0);
 
 const receiveFirstStepData = (...args: unknown[]) => {
@@ -108,45 +108,47 @@ watch(isActive, () => {
 });
 </script>
 <template>
-	<!-- <div class="info">
-		<h1>Wirtualny alkomat</h1>
-		<h2>wpisz informacje i sprawdź czy pijesz odpowiedzialnie</h2>
-		<p>
-			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vel,
-			aspernatur sunt fugiat dolore nisi. Voluptatem incidunt harum aperiam
-			excepturi!
-		</p>
-	</div> -->
-	<!-- <h1 class="contact__title">Kalkulator Promili</h1>
-	<h2 class="contact__subtitle">Sprawdź, czy pijesz odpowiedzialnie</h2>
-	<p class="contact__description">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis corrupti
-		nihil doloremque, ipsa commodi suscipit quo fugiat laboriosam molestias est.
-	</p> -->
-	<section class="container" aria-label="form-card">
-		<!-- progress bar -->
-		<KeepAlive :include="['FirstStep', 'SecondStep']">
-			<component
-				:is="steps[currentStep]"
-				@firstStepData="receiveFirstStepData"
-				@secondStepData="receivedSecondStepData"
-				:promiles="promiles"
-				:grams="grams"
-				:portions="portions"
-				:time="time"
-			></component>
-		</KeepAlive>
-		<!-- może lepiej rozpisać na trzy takie komponenty, by było czytelniej z tymi propsami i metodami-->
-
-		<div class="controls">
-			<button @click="stepBack">Cofnij</button>
-			<button @click="stepForward">Dalej</button>
-			<button @click="finalResults">test</button>
-			<!-- przy mountowaniu może trzeciego weźmiemy policzone wyniki -->
-			<!-- może zrobić, że podczas wyniku znikają przyciski i pojawia się jeden 'od nowa' czy coś w tym stylu (v-if i :disabled) -->
+	<div class="x">
+		<div class="info">
+			<h1 class="x__title">Wirtualny alkomat</h1>
+			<h2 class="x__subtitle">Sprawdź czy pijesz odpowiedzialnie</h2>
+			<p class="x__description">
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vel,
+				aspernatur sunt fugiat dolore nisi. Voluptatem incidunt harum aperiam
+				excepturi!
+			</p>
 		</div>
-	</section>
+
+		<section class="container" aria-label="form-card">
+			<div class="progres-bar" aria-label="progres-bar">
+				<span :class="[{ aktiv: gender && weight }, 'bar']"></span>
+				<span :class="[{ aktiv: power && volume && amount }, 'bar']"></span>
+				<span :class="[{ aktiv: currentStep == 'ThirdStep' }, 'bar']"></span>
+			</div>
+
+			<KeepAlive :include="['FirstStep', 'SecondStep']">
+				<component
+					:is="steps[currentStep]"
+					@firstStepData="receiveFirstStepData"
+					@secondStepData="receivedSecondStepData"
+					:promiles="promiles"
+					:grams="grams"
+					:portions="portions"
+					:time="time"
+				></component>
+			</KeepAlive>
+			<!-- może lepiej rozpisać na trzy takie komponenty, by było czytelniej z tymi propsami i metodami-->
+
+			<div class="controls">
+				<button @click="stepBack">Cofnij</button>
+				<button @click="stepForward">Dalej</button>
+				<button @click="finalResults">test</button>
+				<!-- przy mountowaniu może trzeciego weźmiemy policzone wyniki -->
+				<!-- może zrobić, że podczas wyniku znikają przyciski i pojawia się jeden 'od nowa' czy coś w tym stylu (v-if i :disabled) -->
+			</div>
+		</section>
+	</div>
 </template>
 <style>
-@import '../assets/scss/views/contact-view.scss';
+@import '../assets/scss/views/calculator-view.scss';
 </style>
