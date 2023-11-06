@@ -1,23 +1,39 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-// const receivedType = ref('');
-const receivedPower = ref(0);
-const receivedVolume = ref(0);
-const receiveAmount = ref(0);
+const receivedPower = ref<number | undefined>();
+const receivedVolume = ref<number | undefined>();
+const receiveAmount = ref<number | undefined>();
 
-// const emit = defineEmits(['firstStepData', 'secondStepData']);
+const validateData = (): void => {
+	if (typeof receivedPower.value === 'number') {
+		if (receivedPower.value >= 95) {
+			alert('Podałeś zbyt wysoki procent.');
+			receivedPower.value = undefined;
+		}
+	}
+	if (typeof receivedVolume.value === 'number') {
+		if (receivedVolume.value > 750) {
+			alert('Nie ma tak dużej szklanki');
+			receivedVolume.value = undefined;
+		}
+	}
+};
+
 const emit = defineEmits<{
 	(
 		e: 'secondStepData',
-		receivedPower: number,
-		receivedVolume: number,
-		receivedAmount: number
+		receivedPower: number | undefined,
+		receivedVolume: number | undefined,
+		receivedAmount: number | undefined
 	): void;
 	(e: 'firstStepData'): void;
 }>();
-//przerobić na jedną ogólną funkcję?
+
+//const alcoholType = ():void => {switch}
+
 const collectData = () => {
+	validateData();
 	emit(
 		'secondStepData',
 		receivedPower.value,
@@ -50,11 +66,9 @@ const collectData = () => {
 				<option class="form-control__select-option" value="piwomocne">
 					Piwo Mocne
 				</option>
-
 				<option class="form-control__select-option" value="winoslodkie">
 					Wino
 				</option>
-
 				<option class="form-control__select-option" value="nalewki">
 					Nalewka, Likier
 				</option>
@@ -72,7 +86,7 @@ const collectData = () => {
 				type="number"
 				name="mocalkoholu"
 				v-model="receivedPower"
-				@change="collectData"
+				@input="collectData"
 			/>
 		</div>
 
@@ -86,7 +100,7 @@ const collectData = () => {
 				type="number"
 				name="objetoscalkoholu"
 				v-model="receivedVolume"
-				@change="collectData"
+				@input="collectData"
 			/>
 		</div>
 
@@ -98,7 +112,7 @@ const collectData = () => {
 				type="number"
 				name="iloscporcjialkoholu"
 				v-model="receiveAmount"
-				@change="collectData"
+				@input="collectData"
 			/>
 		</div>
 	</div>

@@ -1,6 +1,7 @@
 <script setup lang="ts"></script>
 <template>
 	<div class="c">
+		<!-- alignment nie jest idealny -->
 		<div class="c__one">
 			<span class="contact__subtitle">jeśli masz jakieś pytania</span>
 			<h1 class="contact__title">Skontaktuj się z nami</h1>
@@ -23,8 +24,6 @@
 					<font-awesome-icon icon="fa-solid fa-house" class="c__icona" />
 					<p class="c__address">ul. Kazimierza Wielkiego 64/2 30-221 Poznań</p>
 				</div>
-
-				<!-- lepiej będzie oddzielić ikonkę od linków, żeby linki się podświetlały na hover a nie ikonka -->
 			</address>
 		</div>
 		<div class="c__two">

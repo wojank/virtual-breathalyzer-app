@@ -17,6 +17,11 @@ button:hover {
 	cursor: pointer;
 	background-color: var(--primary);
 }
+
+button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
 a {
 	font-family: sans-serif;
 	color: black;

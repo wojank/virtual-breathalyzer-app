@@ -1,9 +1,8 @@
 .header {
 	width: 100%;
-	// border-bottom: 1px solid rgb(163, 160, 160);
 	position: sticky;
 	top: 0;
-	background-color: var(--secondary);
+	background: linear-gradient(to right, #6deef7, #6d96f7);
 	z-index: 10;
 	padding: 10px 0;
 
@@ -39,10 +38,9 @@
 	letter-spacing: 0.5px;
 	line-height: 1.5;
 	font-weight: 400;
-	// text-transform: uppercase;
 }
 
 .active {
 	background-color: white;
-	color: var(--primary);
+	color: rgb(26, 26, 52);
 }

@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 700px;
-	// background-color: pink;
+	// background-color: #e1e8f0;
 	margin: 0 auto;
 	font-family: 'Lato', sans-serif;
 }
@@ -23,10 +23,10 @@
 	margin: 0 auto;
 }
 .controls {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 // dla tych paragrafów i headerów będzie mixin
 .x__title {
@@ -52,8 +52,6 @@
 }
 
 .progres-bar {
-	// width: 80%;
-	// text-align: center;
 	margin: 0 auto;
 }
 .bar {

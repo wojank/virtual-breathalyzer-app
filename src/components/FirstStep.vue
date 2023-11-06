@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-// import type { Ref } from 'vue';
 
 const receivedGender = ref<string>('');
 const receivedWeight = ref<number | undefined>();
 
-// const emit = defineEmits(['firstStepData', 'secondStepData']);
+const validateData = (): void => {
+	if (typeof receivedWeight.value === 'number') {
+		if (receivedWeight.value >= 200) {
+			alert('Zbyt wysoka waga, prawdopodobnie ważysz mniej');
+			receivedWeight.value = undefined;
+		}
+	}
+};
 const emit = defineEmits<{
 	(
 		e: 'firstStepData',
@@ -16,6 +22,7 @@ const emit = defineEmits<{
 }>();
 
 const collectData = () => {
+	validateData();
 	emit('firstStepData', receivedGender.value, receivedWeight.value);
 };
 </script>

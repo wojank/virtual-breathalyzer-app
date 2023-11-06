@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import FirstStep from '../components/FirstStep.vue';
 import SecondStep from '../components/SecondStep.vue';
 import ThirdStep from '../components/ThirdStep.vue';
@@ -17,18 +18,24 @@ const currentStep = ref('FirstStep');
 
 const gender = ref<string | any>('');
 const weight = ref<number>(0);
+const firstStepFilled = ref<boolean>(false);
 
 const receiveFirstStepData = (...args: unknown[]) => {
 	const [receivedGender, receivedWeight] = args as [string, number];
 
 	gender.value = receivedGender;
 	weight.value = receivedWeight;
+
+	if (gender.value && weight.value) {
+		firstStepFilled.value = true;
+	}
 };
 
 const power = ref<number>(0);
 const volume = ref<number>(0);
 const amount = ref<number>(0);
-//przerobić na jedną ogólną funkcję?
+const secondStepFilled = ref<boolean>(false);
+
 const receivedSecondStepData = (...args: unknown[]) => {
 	const [receivedPower, receivedVolume, receivedAmount] = args as [
 		number,
@@ -39,12 +46,17 @@ const receivedSecondStepData = (...args: unknown[]) => {
 	power.value = receivedPower;
 	volume.value = receivedVolume;
 	amount.value = receivedAmount;
+
+	if (power.value && volume.value && amount.value) {
+		secondStepFilled.value = true;
+	}
 };
 
-const promiles = ref<string>();
-const grams = ref<number>();
-const portions = ref<number>();
-const time = ref<string>();
+const promiles = ref<number | string>();
+const grams = ref<number | string>();
+const portions = ref<number | string>();
+const time = ref<number | string>();
+const thirstStepFinished = ref<boolean>(false);
 // const ml = volume.value * amount.value;
 
 const finalResults = (): void => {
@@ -62,13 +74,12 @@ const finalResults = (): void => {
 	const s = gender.value == 'mężczyzna' ? 11 : 9;
 
 	//---------------------results-------------------
-	promiles.value = p.toFixed(2);
+	promiles.value = p;
 	grams.value = a;
 	portions.value = a / 10;
-	time.value = (a / s).toFixed(2);
-	//toFixed może w ramach computed na poziomie 3 kompo
+	time.value = a / s;
 
-	console.log(`a = ${a}, k = ${k}, w = ${w}, p = ${p}, s = ${s}`);
+	thirstStepFinished.value = true;
 };
 
 const stepForward = () => {
@@ -81,7 +92,6 @@ const stepBack = () => {
 	currentStep.value === 'ThirdStep'
 		? (currentStep.value = 'SecondStep')
 		: (currentStep.value = 'FirstStep');
-	//a może to na obiekcie jakoś a nie na currentStep zrobić?
 };
 
 const isActive = ref<boolean>(false);
@@ -90,9 +100,6 @@ watch(currentStep, () => {
 	currentStep.value === 'ThirdStep'
 		? (isActive.value = true)
 		: (isActive.value = false);
-	console.log(
-		`currentStep = ${currentStep.value}, isActive = ${isActive.value}`
-	);
 });
 
 watch(isActive, () => {
@@ -106,6 +113,8 @@ watch(isActive, () => {
 		//ten fragment chyba zbędny
 	}
 });
+
+const router = useRouter();
 </script>
 <template>
 	<div class="x">
@@ -113,16 +122,26 @@ watch(isActive, () => {
 			<h1 class="x__title">Wirtualny alkomat</h1>
 			<h2 class="x__subtitle">Sprawdź czy pijesz odpowiedzialnie</h2>
 			<p class="x__description">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vel,
-				aspernatur sunt fugiat dolore nisi. Voluptatem incidunt harum aperiam
-				excepturi!
+				Wirtualny alkomat opiera się na zasadzie obliczania poziomu alkoholu we
+				krwi na podstawie danych dostarczanych przez użytkownika. Podstawowym
+				elementem pomiaru jest ilość spożytego alkoholu oraz czas, jaki upłynął
+				od jego spożycia. Wzór wykorzystuje informacje takie jak waga i płeć
+				użytkownika, aby oszacować tempo metabolizmu alkoholu. Jednak warto
+				zaznaczyć, że wirtualne alkomaty nie są tak precyzyjne jak profesjonalne
+				urządzenia policyjne i nie powinny być używane do podejmowania decyzji
+				dotyczących bezpieczeństwa na drodze.
 			</p>
 		</div>
 
 		<section class="container" aria-label="form-card">
 			<div class="progres-bar" aria-label="progres-bar">
-				<span :class="[{ aktiv: gender && weight }, 'bar']"></span>
-				<span :class="[{ aktiv: power && volume && amount }, 'bar']"></span>
+				<span :class="[{ aktiv: firstStepFilled }, 'bar']"></span>
+				<span
+					:class="[
+						{ aktiv: secondStepFilled && currentStep != 'FirstStep' },
+						'bar',
+					]"
+				></span>
 				<span :class="[{ aktiv: currentStep == 'ThirdStep' }, 'bar']"></span>
 			</div>
 
@@ -140,11 +159,20 @@ watch(isActive, () => {
 			<!-- może lepiej rozpisać na trzy takie komponenty, by było czytelniej z tymi propsami i metodami-->
 
 			<div class="controls">
-				<button @click="stepBack">Cofnij</button>
-				<button @click="stepForward">Dalej</button>
-				<button @click="finalResults">test</button>
-				<!-- przy mountowaniu może trzeciego weźmiemy policzone wyniki -->
-				<!-- może zrobić, że podczas wyniku znikają przyciski i pojawia się jeden 'od nowa' czy coś w tym stylu (v-if i :disabled) -->
+				<button :disabled="currentStep == 'FirstStep'" @click="stepBack">
+					Cofnij
+				</button>
+				<button
+					v-if="!thirstStepFinished"
+					:disabled="
+						!firstStepFilled ||
+						(!secondStepFilled && currentStep == 'SecondStep')
+					"
+					@click="stepForward"
+				>
+					Dalej
+				</button>
+				<button v-else @click="router.go(0)">Od nowa</button>
 			</div>
 		</section>
 	</div>
