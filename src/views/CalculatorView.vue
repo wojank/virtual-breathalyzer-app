@@ -144,7 +144,6 @@ const router = useRouter();
 				></span>
 				<span :class="[{ aktiv: currentStep == 'ThirdStep' }, 'bar']"></span>
 			</div>
-
 			<KeepAlive :include="['FirstStep', 'SecondStep']">
 				<component
 					:is="steps[currentStep]"
@@ -173,6 +172,7 @@ const router = useRouter();
 					Dalej
 				</button>
 				<button v-else @click="router.go(0)">Od nowa</button>
+				<!-- 'od nowa' jest nadal widoczny po cofnięciu - może else-if zrobić z dokładniejszym warunkiem -->
 			</div>
 		</section>
 	</div>

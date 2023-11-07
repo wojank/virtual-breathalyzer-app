@@ -26,3 +26,4 @@ import FaqList from '../components/FaqList.vue';
 <style>
 @import '../assets/scss/views/contact-view.scss';
 </style>
+<!-- ten -->

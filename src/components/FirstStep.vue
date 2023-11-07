@@ -28,9 +28,10 @@ const collectData = () => {
 </script>
 
 <template>
+	<!-- <form> -->
 	<p class="title">podaj płeć oraz wagę</p>
 
-	<div class="wrap">
+	<form class="wrap">
 		<div class="radio">
 			<div class="men">
 				<input
@@ -80,7 +81,8 @@ const collectData = () => {
 				name="waga"
 			/>
 		</div>
-	</div>
+	</form>
+	<!-- </form> -->
 </template>
 
 <style scoped>

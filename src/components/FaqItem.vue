@@ -49,3 +49,4 @@ const leave = (el: Element): void => {
 <style>
 @import '../assets/scss/views/contact-view.scss';
 </style>
+<!-- ten -->

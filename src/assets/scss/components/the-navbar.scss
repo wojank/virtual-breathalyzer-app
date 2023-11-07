@@ -7,7 +7,7 @@
 	padding: 10px 0;
 
 	&__logo {
-		font-family: 'Orbitron', sans-serif;
+		font-family: var(--logo-font);
 		color: white;
 	}
 
@@ -17,7 +17,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		// padding: 10px 0 0 0;
 	}
 
 	&__list {

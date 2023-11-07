@@ -5,11 +5,8 @@
 	align-items: center;
 	justify-content: center;
 	width: 700px;
-	font-family: 'Lato', sans-serif;
-
-	// background-color: pink;
+	// font-family: 'Lato', sans-serif;
 	margin: 0 auto;
-	// text-align: center;
 
 	&__title {
 		font-size: 4rem;
@@ -41,7 +38,6 @@
 }
 
 .faq {
-	// background-color: rgb(206, 169, 206);
 	width: 90%;
 }
 
@@ -73,9 +69,6 @@
 .answer {
 	width: 90%;
 	margin: 0 auto;
-	//20px było
-	// padding-bottom: 20px;
-	// background-color: white;
 }
 
 .answer-main {
@@ -98,11 +91,11 @@
 	transform: rotate(90deg);
 }
 
-.v-enter-active,
-.v-leave-active {
-	transition: height 0.5s ease-in-out;
-	overflow: hidden;
-}
+// .v-enter-active,
+// .v-leave-active {
+// 	transition: height 0.5s ease-in-out;
+// 	overflow: hidden;
+// }
 
 /* real contact */
 
@@ -110,17 +103,13 @@
 	display: flex;
 	min-height: 100vh;
 	width: 80%;
-	// background-color: rgb(219, 219, 152);
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;
-	font-family: 'Lato', sans-serif;
+	// font-family: 'Lato', sans-serif;
 
 	&__one {
-		// background-color: red;
 		width: 50%;
-		// display: flex;
-		// flex-direction: column;
 	}
 
 	&__links {
@@ -150,7 +139,6 @@
 	}
 
 	&__two {
-		// background-color: blue;
 		width: 50%;
 	}
 
@@ -178,7 +166,6 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 50px;
-		// background-color: pink;
 	}
 
 	&__case {

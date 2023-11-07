@@ -14,6 +14,7 @@ const fixedTime = computed(() => {
 </script>
 
 <template>
+	<!-- <section> -->
 	<p class="title">Twoje Wyniki</p>
 
 	<div class="wrap-results">
@@ -28,14 +29,14 @@ const fixedTime = computed(() => {
 			<p class="form-control__title form-control__title--secondary">
 				ilość czystego alkoholu:
 			</p>
-			<span class="result-primary">{{ `${props.grams.toFixed(2)} g` }}</span>
+			<span class="result-primary">{{ `${props.grams.toFixed(1)} g` }}</span>
 		</div>
 
 		<div class="wrapper portion">
 			<p class="form-control__title form-control__title--secondary">
 				ilosć porcji standardowych:
 			</p>
-			<span class="result-primary">{{ props.portions }}</span>
+			<span class="result-primary">{{ props.portions.toFixed(1) }}</span>
 		</div>
 
 		<div class="wrapper time">
@@ -45,6 +46,7 @@ const fixedTime = computed(() => {
 			<span class="result-secondary">{{ fixedTime }}</span>
 		</div>
 	</div>
+	<!-- </section> -->
 </template>
 
 <style scoped>

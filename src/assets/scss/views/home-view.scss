@@ -6,7 +6,7 @@
 	max-width: 1150px;
 	margin: 0 auto;
 	min-height: 500px;
-	font-family: 'Lato', sans-serif;
+	// font-family: 'Lato', sans-serif;
 }
 
 .grid {
@@ -29,6 +29,7 @@
 		font-size: 8rem;
 		margin: 30px 0;
 		line-height: 0.95;
+		color: rgb(26, 26, 52);
 	}
 
 	&__primary-paragraph {
@@ -47,7 +48,6 @@
 
 	&__primary-button {
 		background-color: #6d96f7;
-		// background: linear-gradient(to right, #6deef7, #6d96f7);
 		color: white;
 		font-family: inherit;
 		padding: 15px 60px;
@@ -101,7 +101,7 @@
 	}
 
 	&__paragraph {
-		font-family: sans-serif;
+		// font-family: sans-serif;
 		margin-left: 10px;
 	}
 }
