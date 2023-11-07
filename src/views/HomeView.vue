@@ -1,7 +1,8 @@
 <script setup lang="ts">
-//modal
+import TheModal from '../components/TheModal.vue';
 </script>
 <template>
+	<TheModal />
 	<div class="containerr">
 		<div class="grid">
 			<div class="content__primary-box">
