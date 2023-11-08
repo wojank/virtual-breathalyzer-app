@@ -1,26 +1,28 @@
 :root {
 	//colors
-	--primary: #8368ed;
-	--primary-light: #a494e7;
-	--secondary: #63b1f9;
+
+	--primary: rgb(131, 104, 237);
+	--primary-light: rgb(164, 147, 230);
+	--steel-active: rgb(99, 132, 181);
+	--steel-link: rgb(99, 159, 181);
+	--darker-gradient: rgb(110, 151, 247);
+	--secondary: rgb(98, 176, 249);
+	--cyan: rgb(56, 196, 224);
+	--light-gradient: rgb(110, 238, 247);
+
 	//grayscales
 
-	// --dark: #08080e;
-	// --dark1: #12121d;
-	// --dark2: #1c1c2a;
-	// --dark3: #23232f;
-	// --dark4: #333340;
-	// --dark5: #454551;
+	--black: rgb(0, 0, 0);
+	--black-ink: rgb(26, 26, 52);
+	--gray-paragraph: rgb(54, 54, 54);
+	--gray-modal: rgba(51, 52, 55, 0.9);
+	--gray-label: rgb(71, 69, 69);
+	--gray-sub: rgb(122, 120, 120);
 
-	// --light: #626478;
-	// --light2: #8b8d9c;
-	// --light3: #bebfcd;
-	// --light4: #dadbe6;
-	// --light5: #ececf2;
-
-	//alert
-
-	// 	--success: #4ed885;
-	// 	--error: #f34868;
-	// 	--warning: #f3f348;
+	--gray-shadow: rgba(145, 147, 165, 0.9);
+	--gray-bg: rgb(180, 177, 177);
+	--gray-border: rgb(219, 219, 219);
+	--bright-bg: rgb(202, 238, 238);
+	--light-bg: rgb(241, 243, 245);
+	--white: rgb(255, 255, 255);
 }

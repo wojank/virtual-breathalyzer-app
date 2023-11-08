@@ -5,7 +5,6 @@
 	align-items: center;
 	justify-content: center;
 	width: 700px;
-	// font-family: 'Lato', sans-serif;
 	margin: 0 auto;
 
 	&__title {
@@ -13,27 +12,31 @@
 		margin: 50px 0;
 		line-height: 1.1;
 		letter-spacing: 0.5px;
-		color: rgb(26, 26, 52);
+		color: var(--black-ink);
 	}
 	&__subtitle {
 		font-weight: 300;
 		margin-bottom: 50px;
 		font-size: 2rem;
-		color: rgb(122, 120, 120);
+		color: var(--gray-sub);
 	}
 
 	&__description {
 		line-height: 1.5;
 		margin-bottom: 50px;
-		color: rgb(54, 54, 54);
+		color: var(--gray-paragraph);
 		letter-spacing: 0.5px;
 	}
 
 	&__link {
 		line-height: 1.5;
-		color: rgb(99, 159, 181) !important;
+		color: var(--steel-link) !important;
 		letter-spacing: 0.5px;
 		font-family: inherit;
+
+		&:hover {
+			color: var(--steel-active) !important;
+		}
 	}
 }
 
@@ -43,8 +46,8 @@
 
 .question-main {
 	position: relative;
-	color: rgb(99, 159, 181);
-	background-color: rgb(241, 243, 245);
+	color: var(--steel-link);
+	background-color: var(--light-bg);
 	letter-spacing: 0.5px;
 	line-height: 1.5;
 	border-radius: 5px;
@@ -55,7 +58,7 @@
 	margin-bottom: 15px;
 
 	&:hover {
-		background-color: rgb(202, 238, 238);
+		background-color: var(--bright-bg);
 	}
 
 	&__icon {
@@ -73,17 +76,17 @@
 
 .answer-main {
 	line-height: 1.5;
-	color: rgb(54, 54, 54);
+	color: var(--gray-paragraph);
 	letter-spacing: 0.5px;
 	padding-bottom: 20px;
 }
 
 .active {
-	color: rgb(245, 241, 241);
-	background-color: rgb(99, 159, 181);
+	color: var(--light-bg);
+	background-color: var(--steel-link);
 
 	&:hover {
-		background-color: rgb(99, 132, 181);
+		background-color: var(--steel-active);
 	}
 }
 
@@ -91,11 +94,11 @@
 	transform: rotate(90deg);
 }
 
-// .v-enter-active,
-// .v-leave-active {
-// 	transition: height 0.5s ease-in-out;
-// 	overflow: hidden;
-// }
+.v-enter-active,
+.v-leave-active {
+	transition: height 0.5s ease-in-out;
+	overflow: hidden;
+}
 
 /* real contact */
 
@@ -106,7 +109,6 @@
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;
-	// font-family: 'Lato', sans-serif;
 
 	&__one {
 		width: 50%;
@@ -115,10 +117,10 @@
 	&__links {
 		display: block;
 		font-weight: 700;
-		color: rgb(54, 54, 54);
+		color: var(--gray-paragraph);
 
 		&:hover {
-			color: rgb(122, 120, 120);
+			color: var(--gray-sub);
 		}
 	}
 
@@ -130,7 +132,7 @@
 	&__address {
 		font-weight: 700;
 		width: 24ch;
-		color: rgb(54, 54, 54);
+		color: var(--gray-paragraph);
 	}
 
 	&__addres-item {
@@ -153,9 +155,9 @@
 		padding: 10px;
 		border-radius: 3px;
 		background-color: transparent;
-		color: black;
+		color: var(--black);
 		font-family: inherit;
-		border: 2px solid rgb(219, 219, 219);
+		border: 2px solid var(--gray-border);
 		outline: none;
 		font-size: 16px;
 		margin-bottom: 20px;
@@ -171,7 +173,7 @@
 	&__case {
 		width: 13ch;
 		font-weight: 700;
-		color: rgb(54, 54, 54);
+		color: var(--gray-paragraph);
 	}
 
 	&__r-item {

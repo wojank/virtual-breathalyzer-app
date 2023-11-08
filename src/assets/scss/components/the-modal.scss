@@ -7,12 +7,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(51, 52, 55, 0.9);
+	background-color: var(--gray-modal);
 	z-index: 100;
 }
 
 .window {
-	background-color: white;
+	background-color: var(--white);
 	width: 600px;
 	border-radius: 5px;
 	text-align: center;
@@ -27,25 +27,21 @@
 	width: 100%;
 	margin: 0 auto;
 	padding: 10px;
-	box-shadow: 0px 0px 10px 2px silver;
+	box-shadow: 0px 0px 10px 2px var(--gray-shadow);
 }
-
-// .content {
-// 	font-family: 'Lato', sans-serif;
-// }
 
 .content__title {
 	font-size: 4rem;
 	margin: 50px 0 20px 0;
 	line-height: 1.1;
 	letter-spacing: 0.5px;
-	color: rgb(26, 26, 52);
+	color: var(--black-ink);
 }
 
 .content__subtitle {
 	line-height: 1.5;
 	margin-bottom: 50px;
-	color: rgb(54, 54, 54);
+	color: var(--gray-paragraph);
 	letter-spacing: 0.5px;
 }
 

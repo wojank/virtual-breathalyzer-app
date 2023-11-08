@@ -1,10 +1,9 @@
 .title {
 	margin: 0 0 30px 0;
-	// font-family: 'Lato', sans-serif;
 	font-size: 1.5rem;
 	font-weight: 300;
 	letter-spacing: 0.5px;
-	color: rgb(71, 69, 69);
+	color: var(--gray-label);
 }
 
 .form-control__input-radio {
@@ -17,8 +16,7 @@
 
 .form-control__option {
 	display: block;
-	color: rgb(71, 69, 69);
-	// font-family: sans-serif;
+	color: var(--gray-label);
 	cursor: pointer;
 	text-align: center;
 	position: relative;
@@ -42,7 +40,7 @@
 	border-radius: 50%;
 	height: 20px;
 	width: 20px;
-	border: 2px solid rgb(219, 219, 219);
+	border: 2px solid var(--gray-border);
 	left: calc(50% - 10px);
 	top: calc(200% - 10px);
 }
@@ -69,9 +67,8 @@
 .form-control__title {
 	display: block;
 	margin-bottom: 0.5rem;
-	// font-family: sans-serif;
 	letter-spacing: 0.7px;
-	color: rgb(71, 69, 69);
+	color: var(--gray-label);
 }
 
 .form-control__input-number {
@@ -79,9 +76,8 @@
 	padding: 10px;
 	border-radius: 3px;
 	background-color: transparent;
-	color: black;
-	// font-family: sans-serif;
-	border: 2px solid rgb(219, 219, 219);
+	color: var(--black);
+	border: 2px solid var(--gray-border);
 	outline: none;
 	font-size: 16px;
 }
@@ -110,9 +106,8 @@
 	padding: 10px;
 	border-radius: 3px;
 	background-color: transparent;
-	border: 2px solid rgb(219, 219, 219);
-	color: black;
-	// font-family: sans-serif;
+	border: 2px solid var(--gray-border);
+	color: var(--black);
 	outline: none;
 	font-size: 16px;
 }
@@ -120,14 +115,12 @@
 .result-primary {
 	color: var(--secondary);
 	font-size: 2.2rem;
-	// font-family: sans-serif;
 	margin: 0 0 20px 0;
 }
 
 .result-secondary {
 	color: var(--secondary);
 	font-size: 4rem;
-	// font-family: sans-serif;
 }
 
 .wrapper {

@@ -4,7 +4,6 @@
 	width: 700px;
 	//tu będzie min()
 	margin: 0 auto;
-	// font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -15,7 +14,7 @@
 	width: 500px;
 	border-radius: 10px;
 	padding: 20px;
-	box-shadow: 1px 1px 6px 0px rgba(145, 147, 165, 0.9);
+	box-shadow: 1px 1px 6px 0px var(--gray-shadow);
 	height: 600px;
 	margin: 0 auto;
 }
@@ -31,20 +30,20 @@
 	margin: 50px 0;
 	line-height: 1.1;
 	letter-spacing: 0.5px;
-	color: rgb(26, 26, 52);
+	color: var(--black-ink);
 }
 
 .x__subtitle {
 	font-weight: 300;
 	margin-bottom: 50px;
 	font-size: 2rem;
-	color: rgb(122, 120, 120);
+	color: var(--gray-sub);
 }
 
 .x__description {
 	line-height: 1.5;
 	margin-bottom: 50px;
-	color: rgb(54, 54, 54);
+	color: var(--gray-paragraph);
 	letter-spacing: 0.5px;
 }
 
@@ -53,7 +52,7 @@
 }
 .bar {
 	display: inline-block;
-	background-color: rgb(219, 219, 219);
+	background-color: var(--gray-border);
 	width: 120px;
 	height: 8px;
 	margin: 0 1px;

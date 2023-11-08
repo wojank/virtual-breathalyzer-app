@@ -1,5 +1,5 @@
 .footer {
-	background-color: rgb(180, 177, 177);
+	background-color: var(--gray-bg);
 	width: 100%;
 	padding: 30px 0;
 	text-align: center;
@@ -15,12 +15,12 @@
 
 	&__social {
 		margin: 5px 40px;
-		color: black;
+		color: var(--black);
 		transition: all 0.1s ease;
 	}
 
 	&__social:hover {
-		color: rgb(183, 183, 248);
+		color: var(--white);
 		cursor: pointer;
 	}
 }
