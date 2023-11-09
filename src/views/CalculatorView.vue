@@ -117,11 +117,11 @@ watch(isActive, () => {
 const router = useRouter();
 </script>
 <template>
-	<div class="x">
+	<div class="calculator-view">
 		<div class="info">
-			<h1 class="x__title">Wirtualny alkomat</h1>
-			<h2 class="x__subtitle">Sprawdź czy pijesz odpowiedzialnie</h2>
-			<p class="x__description">
+			<h1 class="info__title">Wirtualny alkomat</h1>
+			<h2 class="info__subtitle">Sprawdź czy pijesz odpowiedzialnie</h2>
+			<p class="info__description">
 				Wirtualny alkomat opiera się na zasadzie obliczania poziomu alkoholu we
 				krwi na podstawie danych dostarczanych przez użytkownika. Podstawowym
 				elementem pomiaru jest ilość spożytego alkoholu oraz czas, jaki upłynął
@@ -133,16 +133,18 @@ const router = useRouter();
 			</p>
 		</div>
 
-		<section class="container" aria-label="form-card">
-			<div class="progres-bar" aria-label="progres-bar">
-				<span :class="[{ aktiv: firstStepFilled }, 'bar']"></span>
+		<section class="card" aria-label="form-card">
+			<div class="card__progress-bars" aria-label="progress-bars">
+				<span :class="[{ active: firstStepFilled }, 'card__bar']"></span>
 				<span
 					:class="[
-						{ aktiv: secondStepFilled && currentStep != 'FirstStep' },
-						'bar',
+						{ active: secondStepFilled && currentStep != 'FirstStep' },
+						'card__bar',
 					]"
 				></span>
-				<span :class="[{ aktiv: currentStep == 'ThirdStep' }, 'bar']"></span>
+				<span
+					:class="[{ active: currentStep == 'ThirdStep' }, 'card__bar']"
+				></span>
 			</div>
 			<KeepAlive :include="['FirstStep', 'SecondStep']">
 				<component
@@ -157,7 +159,7 @@ const router = useRouter();
 			</KeepAlive>
 			<!-- może lepiej rozpisać na trzy takie komponenty, by było czytelniej z tymi propsami i metodami-->
 
-			<div class="controls">
+			<div class="card__buttons">
 				<button :disabled="currentStep == 'FirstStep'" @click="stepBack">
 					Cofnij
 				</button>
@@ -177,6 +179,6 @@ const router = useRouter();
 		</section>
 	</div>
 </template>
-<style>
-@import '../assets/scss/views/calculator-view.scss';
+<style scoped>
+@import '../assets/scss/views/view-calculator.scss';
 </style>

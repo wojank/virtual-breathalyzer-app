@@ -80,45 +80,32 @@ const collectData = () => {
 </script>
 
 <template>
-	<!-- <form> -->
-	<p class="title">wybierz rodzaj oraz ilość spożytego alkoholu</p>
+	<p class="card__title">określ ilość spożytego alkoholu</p>
 
-	<form class="wrap">
-		<div class="form-control wrapper type">
-			<label class="form-control__title" for="alkohol">rodzaj alkoholu</label>
+	<form class="form">
+		<div class="form__group">
+			<label class="form__input-label" for="alkohol">rodzaj alkoholu</label>
 			<select
-				class="form-control__input-select"
+				class="form__input"
 				id="alkohol"
 				name="alkohol"
 				v-model="receivedType"
 				@change="console.log(receivedType)"
 			>
-				<option class="form-control__select-option" value="">
-					wybierz alkohol
-				</option>
-				<option class="form-control__select-option" value="cydr">
-					Cydr, Radler
-				</option>
-				<option class="form-control__select-option" value="jasne">
-					Piwo Jasne
-				</option>
-				<option class="form-control__select-option" value="mocne">
-					Piwo Mocne
-				</option>
-				<option class="form-control__select-option" value="wino">Wino</option>
-				<option class="form-control__select-option" value="likier">
-					Nalewka, Likier
-				</option>
-				<option class="form-control__select-option" value="whisky">
-					Wódka, Whisky, Gin
-				</option>
+				<option value="">wybierz alkohol</option>
+				<option value="cydr">Cydr, Radler</option>
+				<option value="jasne">Piwo Jasne</option>
+				<option value="mocne">Piwo Mocne</option>
+				<option value="wino">Wino</option>
+				<option value="likier">Nalewka, Likier</option>
+				<option value="whisky">Wódka, Whisky, Gin</option>
 			</select>
 		</div>
 
-		<div class="form-control power">
-			<label class="form-control__title" for="moc">moc alkoholu (%)</label>
+		<div class="form__group">
+			<label class="form__input-label" for="moc">moc alkoholu (%)</label>
 			<input
-				class="form-control__input-number"
+				class="form__input"
 				id="moc"
 				type="number"
 				name="mocalkoholu"
@@ -127,12 +114,12 @@ const collectData = () => {
 			/>
 		</div>
 
-		<div class="form-control volume">
-			<label class="form-control__title" for="objetosc"
+		<div class="form__group">
+			<label class="form__input-label" for="objetosc"
 				>objętość porcji (ml)</label
 			>
 			<input
-				class="form-control__input-number"
+				class="form__input"
 				id="objetosc"
 				type="number"
 				name="objetoscalkoholu"
@@ -141,10 +128,10 @@ const collectData = () => {
 			/>
 		</div>
 
-		<div class="form-control amount">
-			<label class="form-control__title" for="ilosc">ilośc porcji</label>
+		<div class="form__group">
+			<label class="form__input-label" for="ilosc">ilośc porcji</label>
 			<input
-				class="form-control__input-number"
+				class="form__input"
 				id="ilosc"
 				type="number"
 				name="iloscporcjialkoholu"
@@ -153,9 +140,8 @@ const collectData = () => {
 			/>
 		</div>
 	</form>
-	<!-- </form> -->
 </template>
 
 <style scoped>
-@import '../assets/scss/components/first-step.scss';
+@import '../assets/scss/components/step-two.scss';
 </style>

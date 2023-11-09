@@ -28,14 +28,13 @@ const collectData = () => {
 </script>
 
 <template>
-	<!-- <form> -->
-	<p class="title">podaj płeć oraz wagę</p>
+	<p class="card__title">podaj płeć oraz wagę</p>
 
-	<form class="wrap">
-		<div class="radio">
-			<div class="men">
+	<form class="form">
+		<div class="form__radios">
+			<div>
 				<input
-					class="form-control__input-radio"
+					class="form__radio"
 					id="mężczyzna"
 					type="radio"
 					value="mężczyzna"
@@ -43,12 +42,12 @@ const collectData = () => {
 					v-model="receivedGender"
 					@change="collectData"
 				/>
-				<label class="form-control__option" for="mężczyzna">mężczyzna</label>
+				<label class="form__radio-label" for="mężczyzna">mężczyzna</label>
 			</div>
 
-			<div class="women">
+			<div>
 				<input
-					class="form-control__input-radio"
+					class="form__radio"
 					id="kobieta"
 					type="radio"
 					value="kobieta"
@@ -56,14 +55,14 @@ const collectData = () => {
 					v-model="receivedGender"
 					@change="collectData"
 				/>
-				<label class="form-control__option" for="kobieta">kobieta</label>
+				<label class="form__radio-label" for="kobieta">kobieta</label>
 			</div>
 		</div>
 
-		<div class="form-control form-control--weight weight">
-			<label class="form-control__title" for="waga">waga</label>
+		<div class="form__group">
+			<label class="form__input-label" for="waga">waga</label>
 			<input
-				class="form-control__input-number"
+				class="form__input"
 				id="waga"
 				type="number"
 				name="waga"
@@ -72,19 +71,13 @@ const collectData = () => {
 			/>
 		</div>
 
-		<div class="form-control form-control--weight age">
-			<label class="form-control__title" for="waga">wiek</label>
-			<input
-				class="form-control__input-number"
-				id="wiek"
-				type="number"
-				name="waga"
-			/>
+		<div class="form__group">
+			<label class="form__input-label" for="wiek">wiek</label>
+			<input class="form__input" id="wiek" type="number" name="wiek" />
 		</div>
 	</form>
-	<!-- </form> -->
 </template>
 
 <style scoped>
-@import '../assets/scss/components/first-step.scss';
+@import '../assets/scss/components/step-one.scss';
 </style>
