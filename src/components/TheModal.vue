@@ -28,20 +28,20 @@ const closeModal = (x: string): void => {
 };
 </script>
 <template>
-	<div v-if="isVisible" class="shadow">
-		<div class="window">
-			<span class="logo">Logo Kampanii</span>
-			<div class="content">
-				<h1 class="content__title">Czy jesteś osobą pełnoletnią?</h1>
-				<p class="content__subtitle">
+	<div v-if="isVisible" class="modal">
+		<section class="modal__window">
+			<span class="modal__logo">Logo Kampanii</span>
+			<div>
+				<h1 class="modal__title">Czy jesteś osobą pełnoletnią?</h1>
+				<p class="modal__subtitle">
 					Zanim zapoznasz się z treścią naszej strony odpowiedz na pytanie
 				</p>
 			</div>
-			<div class="buttons">
-				<button @click="closeModal('tak')" class="btn">Tak</button>
-				<button @click="closeModal('nie')" class="btn">Nie</button>
+			<div class="modal__buttons">
+				<button @click="closeModal('tak')" class="modal__btn">Tak</button>
+				<button @click="closeModal('nie')" class="modal__btn">Nie</button>
 			</div>
-		</div>
+		</section>
 	</div>
 </template>
 <style scoped>

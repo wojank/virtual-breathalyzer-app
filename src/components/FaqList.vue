@@ -29,30 +29,27 @@ const questionsAndAnswers = ref([
 		status: false,
 	},
 ]);
-//z tego poziomu będzie click event zmieniający status
-//w itemie paragraf będzie przez v-show w zależności od statusu
 </script>
 <template>
-	<div class="faq">
+	<article class="faq">
 		<ul>
 			<li v-for="item in questionsAndAnswers" :key="item.question">
 				<h3
-					:class="[{ active: item.status }, 'question-main']"
+					:class="[{ active: item.status }, 'faq__question']"
 					@click="item.status = !item.status"
 				>
 					{{ item.question }}
 					<font-awesome-icon
 						icon="fa-solid fa-arrow-rotate-right"
 						size="1x"
-						:class="[{ rotate: item.status }, 'question-main__icon']"
+						:class="[{ rotate: item.status }, 'faq__icon']"
 					/>
 				</h3>
 				<FaqItem :item="item" />
 			</li>
 		</ul>
-	</div>
+	</article>
 </template>
-<style>
-@import '../assets/scss/views/contact-view.scss';
+<style scoped>
+@import '../assets/scss/components/faq-list.scss';
 </style>
-<!-- ten -->

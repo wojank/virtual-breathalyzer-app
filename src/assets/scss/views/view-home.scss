@@ -1,37 +1,26 @@
-.containerr {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
+.home {
+	display: grid;
+	grid-template-rows: repeat(7, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	max-width: 1150px;
 	margin: 0 auto;
 	min-height: 500px;
 }
 
-.grid {
-	display: grid;
-	grid-template-rows: repeat(7, 1fr);
-	grid-template-columns: repeat(6, 1fr);
-	margin: 0;
-	width: 100%;
-}
+.hero {
+	grid-area: 1 / 1 / 7 / 7;
+	margin: 25px auto 100px auto;
+	width: 80%;
+	text-align: center;
 
-.content {
-	&__primary-box {
-		grid-area: 1 / 1 / 7 / 7;
-		margin: 25px auto 100px auto;
-		width: 80%;
-		text-align: center;
-	}
-
-	&__primary-heading {
+	&__header {
 		font-size: 8rem;
 		margin: 30px 0;
 		line-height: 0.95;
 		color: var(--black-ink);
 	}
 
-	&__primary-paragraph {
+	&__paragraph {
 		line-height: 1.5;
 		letter-spacing: 0.9px;
 		max-width: 70ch;
@@ -40,12 +29,7 @@
 		margin: 50px auto 120px auto;
 	}
 
-	&__wrapper {
-		display: flex;
-		justify-content: center;
-	}
-
-	&__primary-button {
+	&__btn {
 		background-color: var(--darker-gradient);
 		color: var(--white);
 		font-family: inherit;
@@ -56,30 +40,30 @@
 		cursor: pointer;
 		border-radius: 5px;
 		margin: 10px;
+
+		&:hover {
+			background-color: var(--cyan);
+		}
 	}
 
-	&__primary-button:hover {
-		background-color: var(--cyan);
-	}
-
-	&__primary-link {
+	&__link {
 		text-decoration: none;
 		color: inherit;
 	}
+}
 
-	&__secondary {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		margin-bottom: 50px;
-	}
+.testimonials {
+	display: flex;
+	width: 100%;
+	margin: 0 auto;
+	grid-area: 7 / 1 / 8 / 7;
 
-	&__box {
+	&__wrapper {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 20px;
+		width: calc(100% / 3);
 
 		&--border {
 			border-left: 1px solid var(--black);
@@ -87,19 +71,11 @@
 		}
 	}
 
-	&__box-first {
-		grid-area: 7 / 1 / 8 / 3;
-	}
-
-	&__box-second {
-		grid-area: 7 / 3 / 8 / 5;
-	}
-
-	&__box-third {
-		grid-area: 7 / 5 / 8 / 7;
+	&__icon {
+		margin: 10px;
 	}
 
 	&__paragraph {
-		margin-left: 10px;
+		color: var(--gray-paragraph);
 	}
 }

@@ -117,8 +117,8 @@ watch(isActive, () => {
 const router = useRouter();
 </script>
 <template>
-	<div class="calculator-view">
-		<div class="info">
+	<main class="calculator">
+		<section class="info">
 			<h1 class="info__title">Wirtualny alkomat</h1>
 			<h2 class="info__subtitle">Sprawdź czy pijesz odpowiedzialnie</h2>
 			<p class="info__description">
@@ -131,7 +131,7 @@ const router = useRouter();
 				urządzenia policyjne i nie powinny być używane do podejmowania decyzji
 				dotyczących bezpieczeństwa na drodze.
 			</p>
-		</div>
+		</section>
 
 		<section class="card" aria-label="form-card">
 			<div class="card__progress-bars" aria-label="progress-bars">
@@ -177,7 +177,7 @@ const router = useRouter();
 				<!-- 'od nowa' jest nadal widoczny po cofnięciu - może else-if zrobić z dokładniejszym warunkiem -->
 			</div>
 		</section>
-	</div>
+	</main>
 </template>
 <style scoped>
 @import '../assets/scss/views/view-calculator.scss';

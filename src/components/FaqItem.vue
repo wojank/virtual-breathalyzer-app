@@ -38,15 +38,13 @@ const leave = (el: Element): void => {
 </script>
 <template>
 	<Transition @enter="enter" @after-enter="afterEnter" @leave="leave">
-		<!-- jeżeli dodaję margin albo padding do wysokości diva robi się brzydki przeskok. Efekt ten znika, kiedy dodam margin albo padding do wysokości paragrafu -->
-		<div class="answer" v-show="props.item.status">
-			<p class="answer-main">
+		<div class="faq__answer-block" v-show="props.item.status">
+			<p class="faq__answer">
 				{{ props.item.answer }}
 			</p>
 		</div>
 	</Transition>
 </template>
-<style>
-@import '../assets/scss/views/contact-view.scss';
+<style scoped>
+@import '../assets/scss/components/faq-item.scss';
 </style>
-<!-- ten -->
