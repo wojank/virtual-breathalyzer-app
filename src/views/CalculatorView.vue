@@ -92,6 +92,7 @@ const stepBack = () => {
 	currentStep.value === 'ThirdStep'
 		? (currentStep.value = 'SecondStep')
 		: (currentStep.value = 'FirstStep');
+	thirstStepFinished ? (thirstStepFinished.value = false) : '';
 };
 
 const isActive = ref<boolean>(false);
@@ -164,7 +165,11 @@ const router = useRouter();
 					Cofnij
 				</button>
 				<button
-					v-if="!thirstStepFinished"
+					v-if="
+						!thirstStepFinished ||
+						currentStep == 'SecondStep' ||
+						currentStep == 'FirstStep'
+					"
 					:disabled="
 						!firstStepFilled ||
 						(!secondStepFilled && currentStep == 'SecondStep')
@@ -173,8 +178,13 @@ const router = useRouter();
 				>
 					Dalej
 				</button>
-				<button v-else @click="router.go(0)">Od nowa</button>
-				<!-- 'od nowa' jest nadal widoczny po cofnięciu - może else-if zrobić z dokładniejszym warunkiem -->
+				<button
+					v-else-if="thirstStepFinished && currentStep == 'ThirdStep'"
+					@click="router.go(0)"
+				>
+					Od nowa
+				</button>
+				<!-- dla 'od nowa' napisać funkcję resetującą zmienne z wartościamy inputów i wrzucić first step a nie jakieś dziwne przekierowanie -->
 			</div>
 		</section>
 	</main>

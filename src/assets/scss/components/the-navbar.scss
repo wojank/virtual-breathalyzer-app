@@ -51,3 +51,9 @@
 	background-color: var(--white);
 	color: var(--black-ink);
 }
+
+@media (width < 800px) {
+	.header__list-items {
+		display: none;
+	}
+}

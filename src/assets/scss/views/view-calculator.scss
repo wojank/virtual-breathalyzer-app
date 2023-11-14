@@ -1,12 +1,12 @@
 .calculator {
 	display: flex;
-	flex-direction: column;
-	width: 700px;
-	//tu będzie min()
+	max-width: 1250px;
 	margin: 0 auto;
 }
 
 .info {
+	// background-color: pink;
+	width: 50%;
 	&__title {
 		font-size: 4rem;
 		margin: 50px 0;
@@ -41,6 +41,7 @@
 	box-shadow: 1px 1px 6px 0px var(--gray-shadow);
 	height: 600px;
 	margin: 0 auto;
+	// background-color: olive;
 
 	&__progress-bars {
 		margin: 0 auto;
@@ -65,4 +66,20 @@
 
 .active {
 	background-color: var(--secondary);
+}
+
+@media (width < 800px) {
+	.calculator {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.info {
+		text-align: center;
+		width: 100%;
+	}
+
+	.card {
+		width: 100%;
+	}
 }

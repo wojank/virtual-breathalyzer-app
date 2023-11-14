@@ -42,3 +42,13 @@
 		}
 	}
 }
+
+@media (width < 700px) {
+	.about {
+		width: 100%;
+	}
+
+	.text {
+		text-align: center;
+	}
+}

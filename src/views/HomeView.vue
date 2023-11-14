@@ -12,9 +12,9 @@ import TheModal from '../components/TheModal.vue';
 				alkoholu w organizmie, zanim usiądziesz za kierownicą lub zaplanujesz
 				jakąkolwiek aktywność wymagającą odpowiedzialności.
 			</p>
-			<button class="hero__btn">
-				<RouterLink class="hero__link" to="/calculator">Sprawdź</RouterLink>
-			</button>
+			<RouterLink class="hero__link" to="/calculator">
+				<button class="hero__btn">Sprawdź</button>
+			</RouterLink>
 		</section>
 		<section class="testimonials">
 			<div class="testimonials__wrapper">
@@ -22,21 +22,29 @@ import TheModal from '../components/TheModal.vue';
 					icon="fa-solid fa-asterisk"
 					class="testimonials__icon"
 				/>
-				<p class="testimonials__paragraph">dowiedz się o kampani</p>
+
+				<RouterLink class="testimonials__paragraph" to="/about"
+					>dowiedz się o kampani</RouterLink
+				>
 			</div>
 			<div class="testimonials__wrapper testimonials__wrapper--border">
 				<font-awesome-icon
 					icon="fa-solid fa-asterisk"
 					class="testimonials__icon"
 				/>
-				<p class="testimonials__paragraph">zbadaj poziom alkoholu we krwi</p>
+
+				<RouterLink class="testimonials__paragraph" to="/calculator"
+					>zbadaj poziom alkoholu we krwi</RouterLink
+				>
 			</div>
 			<div class="testimonials__wrapper">
 				<font-awesome-icon
 					icon="fa-solid fa-asterisk"
 					class="testimonials__icon"
 				/>
-				<p class="testimonials__paragraph">pij odpowiedzialnie</p>
+				<RouterLink class="testimonials__paragraph" to="/contact"
+					>pij odpowiedzialnie</RouterLink
+				>
 			</div>
 		</section>
 	</main>

@@ -12,6 +12,8 @@ import {
 	faPhone,
 	faHouse,
 	faEnvelope,
+	faBars,
+	faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import {
 	faInstagram,
@@ -28,7 +30,9 @@ library.add(
 	faXTwitter,
 	faPhone,
 	faHouse,
-	faEnvelope
+	faEnvelope,
+	faBars,
+	faXmark
 );
 
 createApp(App)

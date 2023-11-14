@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
+import TheSidebar from './TheSidebar.vue';
+
 const route = useRoute();
 </script>
 <template>
@@ -31,6 +33,7 @@ const route = useRoute();
 							>Kontakt</RouterLink
 						>
 					</li>
+					<TheSidebar />
 				</ul>
 			</nav>
 		</div>

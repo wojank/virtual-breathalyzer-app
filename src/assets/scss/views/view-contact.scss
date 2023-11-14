@@ -110,3 +110,23 @@
 		margin-left: auto;
 	}
 }
+
+@media (width < 900px) {
+	.contact {
+		flex-direction: column;
+	}
+
+	.text {
+		width: 100%;
+	}
+
+	.form {
+		width: 100%;
+		margin-top: 25px;
+
+		&__radios {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+}
