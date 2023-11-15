@@ -1,44 +1,34 @@
+@use '../mixins' as m;
+
 .about {
 	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	@include m.flexbox(flex, center, center, column);
 	width: 700px;
 	margin: 0 auto;
 }
 
 .text {
 	&__title {
-		font-size: 4rem;
+		@include m.typography(4rem, 1.1, 0.5px, var(--black-ink));
 		margin: 50px 0;
-		line-height: 1.1;
-		letter-spacing: 0.5px;
-		color: var(--black-ink);
 	}
 
 	&__subtitle {
-		font-weight: 300;
+		@include m.typography(2rem, 1.5, 0.8px, var(--gray-sub), 300);
 		margin-bottom: 50px;
-		font-size: 2rem;
-		color: var(--gray-sub);
 	}
 
 	&__paragraph {
-		line-height: 1.5;
+		@include m.typography(1.05rem, 1.5, 0.8px, var(--gray-paragraph));
 		margin-bottom: 50px;
-		color: var(--gray-paragraph);
-		letter-spacing: 0.5px;
 	}
 
 	&__link {
-		line-height: 1.5;
-		color: var(--steel-link) !important;
-		letter-spacing: 0.5px;
+		@include m.typography(1.05rem, 1.5, 0.8px, var(--steel-link));
 		font-family: inherit;
 
 		&:hover {
-			color: var(--steel-active) !important;
+			color: var(--steel-active);
 		}
 	}
 }

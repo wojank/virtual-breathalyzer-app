@@ -1,0 +1,31 @@
+@mixin typography(
+	$font-size,
+	$line-height,
+	$letter-spacing,
+	$color,
+	$font-weight: false
+) {
+	font-size: $font-size;
+	line-height: $line-height;
+	letter-spacing: $letter-spacing;
+	color: $color;
+
+	@if $font-weight {
+		font-weight: $font-weight;
+	}
+}
+
+@mixin flexbox(
+	$display,
+	$align-items,
+	$justify-content,
+	$flex-direction: false
+) {
+	display: $display;
+	align-items: $align-items;
+	justify-content: $justify-content;
+
+	@if $flex-direction {
+		flex-direction: $flex-direction;
+	}
+}

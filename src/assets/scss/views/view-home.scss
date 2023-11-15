@@ -1,3 +1,7 @@
+@use '../mixins' as m;
+
+// 7
+
 .home {
 	display: grid;
 	grid-template-rows: repeat(7, 1fr);
@@ -14,18 +18,13 @@
 	text-align: center;
 
 	&__header {
-		font-size: 8rem;
+		@include m.typography(8rem, 0.95, 0.5px, var(--black-ink));
 		margin: 30px 0;
-		line-height: 0.95;
-		color: var(--black-ink);
 	}
 
 	&__paragraph {
-		line-height: 1.5;
-		letter-spacing: 0.9px;
+		@include m.typography(1.05rem, 1.5, 0.8px, var(--gray-paragraph));
 		max-width: 70ch;
-		font-size: 1.05rem;
-		color: var(--gray-paragraph);
 		margin: 50px auto 120px auto;
 	}
 
@@ -59,9 +58,7 @@
 	grid-area: 7 / 1 / 8 / 7;
 
 	&__wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		@include m.flexbox(flex, center, center);
 		padding: 20px;
 		width: calc(100% / 3);
 

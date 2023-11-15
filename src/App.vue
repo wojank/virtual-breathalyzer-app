@@ -9,4 +9,4 @@ import TheNavbar from './components/TheNavbar.vue';
 	<TheFooter />
 </template>
 
-<style scoped></style>
+<style></style>

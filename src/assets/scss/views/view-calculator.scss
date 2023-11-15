@@ -1,3 +1,5 @@
+@use '../mixins' as m;
+
 .calculator {
 	display: flex;
 	max-width: 1250px;
@@ -5,43 +7,32 @@
 }
 
 .info {
-	// background-color: pink;
 	width: 50%;
+
 	&__title {
-		font-size: 4rem;
+		@include m.typography(4rem, 1.1, 0.5px, var(--black-ink));
 		margin: 50px 0;
-		line-height: 1.1;
-		letter-spacing: 0.5px;
-		color: var(--black-ink);
 	}
 
 	&__subtitle {
-		font-weight: 300;
+		@include m.typography(2rem, 1.5, 0.8px, var(--gray-sub), 300);
 		margin-bottom: 50px;
-		font-size: 2rem;
-		color: var(--gray-sub);
 	}
 
 	&__description {
-		line-height: 1.5;
+		@include m.typography(1.05rem, 1.5, 0.8px, var(--gray-paragraph));
 		margin-bottom: 50px;
-		color: var(--gray-paragraph);
-		letter-spacing: 0.5px;
 	}
 }
 
 .card {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-between;
+	@include m.flexbox(flex, center, space-between, column);
 	width: 500px;
 	border-radius: 10px;
 	padding: 20px;
 	box-shadow: 1px 1px 6px 0px var(--gray-shadow);
 	height: 600px;
 	margin: 0 auto;
-	// background-color: olive;
 
 	&__progress-bars {
 		margin: 0 auto;
@@ -58,9 +49,7 @@
 
 	&__buttons {
 		width: 80%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		@include m.flexbox(flex, center, space-between);
 	}
 }
 
