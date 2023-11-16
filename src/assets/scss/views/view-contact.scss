@@ -1,7 +1,7 @@
 @use '../mixins' as m;
 
 .contact {
-	@include m.flexbox(flex, center, center);
+	@include m.flexbox(center, center);
 	min-height: 100vh;
 	width: 80%;
 	margin: 0 auto;
@@ -11,17 +11,22 @@
 	width: 50%;
 
 	&__subtitle {
-		@include m.typography(2rem, 1.5, 0.8px, var(--gray-sub), 300);
+		@include m.typography(2rem, var(--gray-sub), $weight: 300);
 		margin-bottom: 50px;
 	}
 
 	&__title {
-		@include m.typography(4rem, 1.1, 0.5px, var(--black-ink));
+		@include m.typography(
+			4rem,
+			var(--black-ink),
+			$height: 1.1,
+			$spacing: 0.5px
+		);
 		margin: 50px 0;
 	}
 
 	&__paragraph {
-		@include m.typography(1.05rem, 1.5, 0.5px, var(--gray-paragraph));
+		@include m.typography(1.05rem, var(--gray-paragraph));
 		margin-bottom: 50px;
 	}
 }
@@ -77,7 +82,7 @@
 	}
 
 	&__radios {
-		@include m.flexbox(flex, center, space-between);
+		@include m.flexbox(center, space-between);
 		margin-bottom: 50px;
 	}
 

@@ -1,3 +1,5 @@
+@use '../mixins' as m;
+
 .footer {
 	background-color: var(--gray-bg);
 	width: 100%;
@@ -6,10 +8,8 @@
 	margin-top: 50px;
 
 	&__paragraph {
+		@include m.typography(0.9rem, var(--black), $spacing: 5px);
 		text-transform: uppercase;
-		font-family: sans-serif;
-		letter-spacing: 5px;
-		font-size: 0.9rem;
 		margin: 0 0 20px 0;
 	}
 

@@ -1,12 +1,12 @@
 @use '../mixins' as m;
 
 .modal {
+	@include m.flexbox(flex, center, center);
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	min-height: 100vh;
-	@include m.flexbox(flex, center, center);
 	background-color: var(--gray-modal);
 	z-index: 100;
 
@@ -41,7 +41,6 @@
 
 	&__buttons {
 		@include m.flexbox(flex, center, space-evenly);
-
 		background-color: var(--primary-light);
 	}
 

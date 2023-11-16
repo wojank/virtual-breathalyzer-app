@@ -1,3 +1,5 @@
+@use '../mixins' as m;
+
 .header {
 	width: 100%;
 	position: sticky;
@@ -16,11 +18,9 @@
 	}
 
 	&__container {
+		@include m.flexbox(center, space-between);
 		width: 80%;
 		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 	}
 
 	&__list {

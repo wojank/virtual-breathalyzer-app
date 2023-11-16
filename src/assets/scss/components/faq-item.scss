@@ -1,11 +1,11 @@
+@use '../mixins' as m;
+
 .faq__answer-block {
 	width: 90%;
 	margin: 0 auto;
 }
 
 .faq__answer {
-	line-height: 1.5;
-	color: var(--gray-paragraph);
-	letter-spacing: 0.5px;
+	@include m.typography(1rem, var(--gray-paragraph), $spacing: 0.5px);
 	padding-bottom: 20px;
 }

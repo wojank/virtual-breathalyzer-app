@@ -1,31 +1,26 @@
 @mixin typography(
-	$font-size,
-	$line-height,
-	$letter-spacing,
+	$size,
 	$color,
-	$font-weight: false
+	$height: 1.5,
+	$spacing: 0.8px,
+	$weight: false
 ) {
-	font-size: $font-size;
-	line-height: $line-height;
-	letter-spacing: $letter-spacing;
+	font-size: $size;
 	color: $color;
+	line-height: $height;
+	letter-spacing: $spacing;
 
-	@if $font-weight {
-		font-weight: $font-weight;
+	@if $weight {
+		font-weight: $weight;
 	}
 }
 
-@mixin flexbox(
-	$display,
-	$align-items,
-	$justify-content,
-	$flex-direction: false
-) {
-	display: $display;
-	align-items: $align-items;
-	justify-content: $justify-content;
+@mixin flexbox($align, $justify, $direction: false) {
+	display: flex;
+	align-items: $align;
+	justify-content: $justify;
 
-	@if $flex-direction {
-		flex-direction: $flex-direction;
+	@if $direction {
+		flex-direction: $direction;
 	}
 }
