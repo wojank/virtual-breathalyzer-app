@@ -1,20 +1,17 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .header {
 	width: 100%;
 	position: sticky;
 	top: 0;
-	background: linear-gradient(
-		to right,
-		var(--light-gradient),
-		var(--darker-gradient)
-	);
+	background: linear-gradient(to right, c.$light-gradient, c.$darker-gradient);
 	z-index: 10;
 	padding: 10px 0;
 
 	&__logo {
 		font-family: var(--logo-font);
-		color: var(--white);
+		color: c.$white;
 	}
 
 	&__container {
@@ -32,24 +29,25 @@
 		display: inline-block;
 		margin: 0 10px;
 	}
-}
-.tab {
-	padding: 10px 10px 20px 10px;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
-	color: var(--white);
-	letter-spacing: 0.5px;
-	line-height: 1.5;
-	font-weight: 400;
 
-	&:hover {
-		color: var(--bright-bg);
+	.tab {
+		padding: 10px 10px 20px 10px;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		color: c.$white;
+		letter-spacing: 0.5px;
+		line-height: 1.5;
+		font-weight: 400;
+
+		&:hover {
+			color: c.$bright-bg;
+		}
 	}
-}
 
-.active {
-	background-color: var(--white);
-	color: var(--black-ink);
+	.active {
+		background-color: c.$white;
+		color: c.$black-ink;
+	}
 }
 
 @media (width < 800px) {

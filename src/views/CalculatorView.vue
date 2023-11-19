@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import FirstStep from '../components/FirstStep.vue';
 import SecondStep from '../components/SecondStep.vue';
 import ThirdStep from '../components/ThirdStep.vue';
@@ -14,6 +13,7 @@ const steps: Record<
 	SecondStep,
 	ThirdStep,
 };
+
 const currentStep = ref('FirstStep');
 
 const gender = ref<string | any>('');
@@ -115,7 +115,21 @@ watch(isActive, () => {
 	}
 });
 
-const router = useRouter();
+const clearForm = (): void => {
+	gender.value = '';
+	weight.value = 0;
+	firstStepFilled.value = false;
+	power.value = 0;
+	volume.value = 0;
+	amount.value = 0;
+	secondStepFilled.value = false;
+	promiles.value = 0;
+	portions.value = 0;
+	grams.value = 0;
+	time.value = 0;
+	thirstStepFinished.value = false;
+	currentStep.value = 'FirstStep';
+};
 </script>
 <template>
 	<main class="calculator">
@@ -158,7 +172,6 @@ const router = useRouter();
 					:time="time"
 				></component>
 			</KeepAlive>
-			<!-- może lepiej rozpisać na trzy takie komponenty, by było czytelniej z tymi propsami i metodami-->
 
 			<div class="card__buttons">
 				<button :disabled="currentStep == 'FirstStep'" @click="stepBack">
@@ -180,11 +193,10 @@ const router = useRouter();
 				</button>
 				<button
 					v-else-if="thirstStepFinished && currentStep == 'ThirdStep'"
-					@click="router.go(0)"
+					@click="clearForm"
 				>
 					Od nowa
 				</button>
-				<!-- dla 'od nowa' napisać funkcję resetującą zmienne z wartościamy inputów i wrzucić first step a nie jakieś dziwne przekierowanie -->
 			</div>
 		</section>
 	</main>

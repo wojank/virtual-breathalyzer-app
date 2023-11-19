@@ -1,17 +1,18 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .modal {
-	@include m.flexbox(flex, center, center);
+	@include m.flexbox(center, center);
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	min-height: 100vh;
-	background-color: var(--gray-modal);
+	background-color: c.$gray-modal;
 	z-index: 100;
 
 	&__window {
-		background-color: var(--white);
+		background-color: c.$white;
 		width: 600px;
 		border-radius: 5px;
 		text-align: center;
@@ -20,28 +21,28 @@
 
 	&__logo {
 		font-family: var(--logo-font);
-		color: var(--secondary);
+		color: c.$secondary;
 		font-size: 1.5rem;
 		display: inline-block;
 		width: 100%;
 		margin: 0 auto;
 		padding: 10px;
-		box-shadow: 0px 0px 10px 2px var(--gray-shadow);
+		box-shadow: 0px 0px 10px 2px c.$gray-shadow;
 	}
 
 	&__title {
-		@include m.typography(4rem, 1.1, 0.5px, var(--black-ink));
+		@include m.typography(4rem, c.$black-ink, 1.1, 0.5px);
 		margin: 50px 0 20px 0;
 	}
 
 	&__subtitle {
-		@include m.typography(2rem, 1.5, 0.8px, var(--gray-paragraph));
+		@include m.typography(2rem, c.$gray-paragraph);
 		margin-bottom: 50px;
 	}
 
 	&__buttons {
-		@include m.flexbox(flex, center, space-evenly);
-		background-color: var(--primary-light);
+		@include m.flexbox(center, space-evenly);
+		background-color: c.$primary-light;
 	}
 
 	&__btn {

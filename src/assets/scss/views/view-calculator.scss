@@ -1,79 +1,73 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .calculator {
 	display: flex;
 	max-width: 1250px;
 	margin: 0 auto;
-}
 
-.info {
-	width: 50%;
+	.info {
+		width: 50%;
 
-	&__title {
-		@include m.typography(
-			4rem,
-			var(--black-ink),
-			$height: 1.1,
-			$spacing: 0.5px
-		);
-		margin: 50px 0;
+		&__title {
+			@include m.typography(4rem, c.$black-ink, $height: 1.1, $spacing: 0.5px);
+			margin: 50px 0;
+		}
+
+		&__subtitle {
+			@include m.typography(2rem, c.$gray-sub, $weight: 300);
+			margin-bottom: 50px;
+		}
+
+		&__description {
+			@include m.typography(1.05rem, c.$gray-paragraph);
+			margin-bottom: 50px;
+		}
 	}
 
-	&__subtitle {
-		@include m.typography(2rem, var(--gray-sub), $weight: 300);
-		margin-bottom: 50px;
-	}
-
-	&__description {
-		@include m.typography(1.05rem, var(--gray-paragraph));
-		margin-bottom: 50px;
-	}
-}
-
-.card {
-	@include m.flexbox(center, space-between, column);
-	width: 500px;
-	border-radius: 10px;
-	padding: 20px;
-	box-shadow: 1px 1px 6px 0px var(--gray-shadow);
-	height: 600px;
-	margin: 0 auto;
-
-	&__progress-bars {
+	.card {
+		@include m.flexbox(center, space-between, column);
+		width: 500px;
+		border-radius: 10px;
+		padding: 20px;
+		box-shadow: 1px 1px 6px 0px c.$gray-shadow;
+		height: 600px;
 		margin: 0 auto;
-	}
 
-	&__bar {
-		display: inline-block;
-		background-color: var(--gray-border);
-		width: 120px;
-		height: 8px;
-		margin: 0 1px;
-		border-radius: 2px;
-	}
+		&__progress-bars {
+			margin: 0 auto;
+		}
 
-	&__buttons {
-		width: 80%;
-		@include m.flexbox(center, space-between);
-	}
-}
+		&__bar {
+			display: inline-block;
+			background-color: c.$gray-border;
+			width: 120px;
+			height: 8px;
+			margin: 0 1px;
+			border-radius: 2px;
+		}
 
-.active {
-	background-color: var(--secondary);
+		.active {
+			background-color: c.$secondary;
+		}
+
+		&__buttons {
+			@include m.flexbox(center, space-between);
+			width: 80%;
+		}
+	}
 }
 
 @media (width < 800px) {
 	.calculator {
-		flex-direction: column;
-		align-items: center;
-	}
+		@include m.flexbox(center, center, column);
+		.info {
+			text-align: center;
+			width: 100%;
+		}
 
-	.info {
-		text-align: center;
-		width: 100%;
-	}
-
-	.card {
-		width: 100%;
+		.card {
+			width: 100%;
+		}
 	}
 }

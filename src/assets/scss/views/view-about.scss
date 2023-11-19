@@ -1,39 +1,35 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .about {
 	@include m.flexbox(center, center, column);
 	min-height: 100vh;
 	width: 700px;
 	margin: 0 auto;
-}
 
-.text {
-	&__title {
-		@include m.typography(
-			4rem,
-			var(--black-ink),
-			$height: 1.1,
-			$spacing: 0.5px
-		);
-		margin: 50px 0;
-	}
+	.text {
+		&__title {
+			@include m.typography(4rem, c.$black-ink, $height: 1.1, $spacing: 0.5px);
+			margin: 50px 0;
+		}
 
-	&__subtitle {
-		@include m.typography(2rem, var(--gray-sub), $weight: 300);
-		margin-bottom: 50px;
-	}
+		&__subtitle {
+			@include m.typography(2rem, c.$gray-sub, $weight: 300);
+			margin-bottom: 50px;
+		}
 
-	&__paragraph {
-		@include m.typography(1.05rem, var(--gray-paragraph));
-		margin-bottom: 50px;
-	}
+		&__paragraph {
+			@include m.typography(1.05rem, c.$gray-paragraph);
+			margin-bottom: 50px;
+		}
 
-	&__link {
-		@include m.typography(1.05rem, var(--steel-link));
-		font-family: inherit;
+		&__link {
+			@include m.typography(1.05rem, c.$steel-link);
+			font-family: inherit;
 
-		&:hover {
-			color: var(--steel-active);
+			&:hover {
+				color: c.$steel-active;
+			}
 		}
 	}
 }
@@ -41,9 +37,9 @@
 @media (width < 700px) {
 	.about {
 		width: 100%;
-	}
 
-	.text {
-		text-align: center;
+		.text {
+			text-align: center;
+		}
 	}
 }

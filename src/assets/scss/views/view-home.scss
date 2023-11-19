@@ -1,4 +1,5 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .home {
 	display: grid;
@@ -7,87 +8,84 @@
 	max-width: 1150px;
 	margin: 0 auto;
 	min-height: 500px;
-}
 
-.hero {
-	grid-area: 1 / 1 / 7 / 7;
-	margin: 25px auto 100px auto;
-	width: 80%;
-	text-align: center;
+	.hero {
+		grid-area: 1 / 1 / 7 / 7;
+		margin: 25px auto 100px auto;
+		width: 80%;
+		text-align: center;
 
-	&__header {
-		@include m.typography(
-			8rem,
-			var(--black-ink),
-			$height: 0.95,
-			$spacing: 0.5px
-		);
-		margin: 30px 0;
-	}
+		&__header {
+			@include m.typography(8rem, c.$black-ink, $height: 0.95, $spacing: 0.5px);
+			margin: 30px 0;
+		}
 
-	&__paragraph {
-		@include m.typography(1.05rem, var(--gray-paragraph));
-		max-width: 70ch;
-		margin: 50px auto 120px auto;
-	}
+		&__paragraph {
+			@include m.typography(1.05rem, c.$gray-paragraph);
+			max-width: 70ch;
+			margin: 50px auto 120px auto;
+		}
 
-	&__btn {
-		background-color: var(--darker-gradient);
-		color: var(--white);
-		font-family: inherit;
-		padding: 15px 60px;
-		letter-spacing: 2px;
-		text-transform: uppercase;
-		font-size: 1rem;
-		cursor: pointer;
-		border-radius: 5px;
-		margin: 10px;
+		&__btn {
+			background-color: c.$darker-gradient;
+			color: c.$white;
+			font-family: inherit;
+			padding: 15px 60px;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			font-size: 1rem;
+			cursor: pointer;
+			border-radius: 5px;
+			margin: 10px;
 
-		&:hover {
-			background-color: var(--cyan);
+			&:hover {
+				background-color: c.$cyan;
+			}
+		}
+
+		&__link {
+			text-decoration: none;
+			color: inherit;
 		}
 	}
 
-	&__link {
-		text-decoration: none;
-		color: inherit;
-	}
-}
+	.testimonials {
+		display: flex;
+		width: 100%;
+		margin: 0 auto;
+		grid-area: 7 / 1 / 8 / 7;
 
-.testimonials {
-	display: flex;
-	width: 100%;
-	margin: 0 auto;
-	grid-area: 7 / 1 / 8 / 7;
+		&__wrapper {
+			@include m.flexbox(center, center);
+			padding: 20px;
+			width: calc(100% / 3);
 
-	&__wrapper {
-		@include m.flexbox(center, center);
-		padding: 20px;
-		width: calc(100% / 3);
-
-		&--border {
-			border-left: 1px solid var(--black);
-			border-right: 1px solid var(--black);
+			&--border {
+				border-left: 1px solid c.$black;
+				border-right: 1px solid c.$black;
+			}
 		}
-	}
 
-	&__icon {
-		margin: 10px;
-	}
+		&__icon {
+			margin: 10px;
+		}
 
-	&__paragraph {
-		color: var(--gray-paragraph);
+		&__paragraph {
+			color: c.$gray-paragraph;
 
-		&:hover {
-			color: var(--steel-link);
+			&:hover {
+				color: c.$steel-link;
+			}
 		}
 	}
 }
 
 @media (width < 1100px) {
-	.hero {
-		&__header {
-			font-size: 5rem;
+	.home {
+		.hero {
+			&__header {
+				font-size: 5rem;
+			}
 		}
 	}
 }
@@ -95,30 +93,31 @@
 @media (width < 700px) {
 	.home {
 		grid-template-rows: repeat(6, 1fr);
-	}
 
-	.hero {
-		margin: 25px auto 25px auto;
+		.hero {
+			margin: 25px auto 25px auto;
 
-		&__header {
-			font-size: 2.5rem;
+			&__header {
+				font-size: 2.5rem;
+			}
+
+			&__paragraph {
+				margin: 50px auto 50px auto;
+			}
 		}
 
-		&__paragraph {
-			margin: 50px auto 50px auto;
-		}
-	}
-	.testimonials {
-		flex-direction: column;
+		.testimonials {
+			flex-direction: column;
 
-		&__wrapper {
-			width: 100%;
+			&__wrapper {
+				width: 100%;
 
-			&--border {
-				border-left: none;
-				border-right: none;
-				border-top: 1px solid var(--black);
-				border-bottom: 1px solid var(--black);
+				&--border {
+					border-left: none;
+					border-right: none;
+					border-top: 1px solid c.$black;
+					border-bottom: 1px solid c.$black;
+				}
 			}
 		}
 	}

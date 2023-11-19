@@ -1,128 +1,122 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .contact {
 	@include m.flexbox(center, center);
 	min-height: 100vh;
 	width: 80%;
 	margin: 0 auto;
-}
 
-.text {
-	width: 50%;
+	.text {
+		width: 50%;
 
-	&__subtitle {
-		@include m.typography(2rem, var(--gray-sub), $weight: 300);
-		margin-bottom: 50px;
-	}
+		&__subtitle {
+			@include m.typography(2rem, c.$gray-sub, $weight: 300);
+			margin-bottom: 50px;
+		}
 
-	&__title {
-		@include m.typography(
-			4rem,
-			var(--black-ink),
-			$height: 1.1,
-			$spacing: 0.5px
-		);
-		margin: 50px 0;
-	}
+		&__title {
+			@include m.typography(4rem, c.$black-ink, $height: 1.1, $spacing: 0.5px);
+			margin: 50px 0;
+		}
 
-	&__paragraph {
-		@include m.typography(1.05rem, var(--gray-paragraph));
-		margin-bottom: 50px;
-	}
-}
+		&__paragraph {
+			@include m.typography(1.05rem, c.$gray-paragraph);
+			margin-bottom: 50px;
+		}
 
-.address {
-	&__item {
-		display: flex;
-		align-items: center;
-	}
+		.address {
+			&__item {
+				display: flex;
+				align-items: center;
+			}
 
-	&__icon {
-		vertical-align: middle;
-		margin: 8px;
-	}
+			&__icon {
+				vertical-align: middle;
+				margin: 8px;
+			}
 
-	&__link {
-		display: block;
-		font-weight: 700;
-		color: var(--gray-paragraph);
+			&__link {
+				display: block;
+				font-weight: 700;
+				color: c.$gray-paragraph;
 
-		&:hover {
-			color: var(--gray-sub);
+				&:hover {
+					color: c.$gray-sub;
+				}
+			}
+
+			&__address {
+				font-weight: 700;
+				width: 24ch;
+				color: c.$gray-paragraph;
+			}
 		}
 	}
 
-	&__address {
-		font-weight: 700;
-		width: 24ch;
-		color: var(--gray-paragraph);
-	}
-}
+	.form {
+		width: 50%;
 
-.form {
-	width: 50%;
+		&__form {
+			display: flex;
+			flex-direction: column;
+		}
 
-	&__form {
-		display: flex;
-		flex-direction: column;
-	}
+		&__input,
+		&__textarea {
+			width: 100%;
+			padding: 10px;
+			border-radius: 3px;
+			background-color: transparent;
+			color: c.$black;
+			font-family: inherit;
+			border: 2px solid c.$gray-border;
+			outline: none;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
 
-	&__input,
-	&__textarea {
-		width: 100%;
-		padding: 10px;
-		border-radius: 3px;
-		background-color: transparent;
-		color: var(--black);
-		font-family: inherit;
-		border: 2px solid var(--gray-border);
-		outline: none;
-		font-size: 16px;
-		margin-bottom: 20px;
-	}
+		&__radios {
+			@include m.flexbox(center, space-between);
+			margin-bottom: 50px;
+		}
 
-	&__radios {
-		@include m.flexbox(center, space-between);
-		margin-bottom: 50px;
-	}
+		&__case {
+			width: 13ch;
+			font-weight: 700;
+			color: c.$gray-paragraph;
+		}
 
-	&__case {
-		width: 13ch;
-		font-weight: 700;
-		color: var(--gray-paragraph);
-	}
+		&__r-item {
+			@include m.flexbox(center, center);
+		}
 
-	&__r-item {
-		display: flex;
-		align-items: center;
-	}
+		&__label {
+			margin-left: 5px;
+		}
 
-	&__label {
-		margin-left: 5px;
-	}
-
-	&__btn {
-		width: 140px;
-		margin-left: auto;
+		&__btn {
+			width: 140px;
+			margin-left: auto;
+		}
 	}
 }
 
 @media (width < 900px) {
 	.contact {
 		flex-direction: column;
-	}
 
-	.text {
-		width: 100%;
-	}
+		.text {
+			width: 100%;
+		}
 
-	.form {
-		width: 100%;
-		margin-top: 25px;
+		.form {
+			width: 100%;
+			margin-top: 25px;
 
-		&__radios {
-			flex-direction: column;
-			align-items: flex-start;
+			&__radios {
+				@include m.flexbox(flex-start, center, column);
+			}
 		}
 	}
 }

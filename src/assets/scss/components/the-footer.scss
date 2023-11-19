@@ -1,26 +1,27 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .footer {
-	background-color: var(--gray-bg);
+	background-color: c.$gray-bg;
 	width: 100%;
 	padding: 30px 0;
 	text-align: center;
 	margin-top: 50px;
 
 	&__paragraph {
-		@include m.typography(0.9rem, var(--black), $spacing: 5px);
+		@include m.typography(0.9rem, c.$black, $spacing: 5px);
 		text-transform: uppercase;
 		margin: 0 0 20px 0;
 	}
 
 	&__social {
 		margin: 5px 40px;
-		color: var(--black);
+		color: c.$black;
 		transition: all 0.1s ease;
 	}
 
 	&__social:hover {
-		color: var(--white);
+		color: c.$white;
 		cursor: pointer;
 	}
 }

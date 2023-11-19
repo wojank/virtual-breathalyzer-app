@@ -1,12 +1,8 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .card__title {
-	@include m.typography(
-		1.5rem,
-		var(--gray-label),
-		$spacing: 0.5px,
-		$weight: 300
-	);
+	@include m.typography(1.5rem, c.$gray-label, $spacing: 0.5px, $weight: 300);
 	margin: 0 0 30px 0;
 }
 
@@ -24,7 +20,7 @@
 		display: block;
 		margin-bottom: 0.5rem;
 		letter-spacing: 0.7px;
-		color: var(--gray-label);
+		color: c.$gray-label;
 	}
 
 	&__input {
@@ -32,15 +28,15 @@
 		padding: 10px;
 		border-radius: 3px;
 		background-color: transparent;
-		color: var(--black);
-		border: 2px solid var(--gray-border);
+		color: c.$black;
+		border: 2px solid c.$gray-border;
 		outline: none;
 		font-size: 16px;
 
 		&:hover,
 		&:focus {
 			outline: none;
-			border: 2px solid var(--secondary);
+			border: 2px solid c.$secondary;
 		}
 	}
 }

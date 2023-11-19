@@ -1,4 +1,5 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .faq__answer-block {
 	width: 90%;
@@ -6,6 +7,6 @@
 }
 
 .faq__answer {
-	@include m.typography(1rem, var(--gray-paragraph), $spacing: 0.5px);
+	@include m.typography(1rem, c.$gray-paragraph, $spacing: 0.5px);
 	padding-bottom: 20px;
 }

@@ -1,3 +1,5 @@
+@use './colors' as c;
+
 body {
 	min-height: 100vh;
 	font-family: var(--main-font);
@@ -7,27 +9,26 @@ button {
 	padding: 10px 30px;
 	border: none;
 	font: inherit;
-	font-family: sans-serif;
 	font-weight: 700;
-	color: white;
-	background-color: var(--primary-light);
+	color: c.$white;
+	background-color: c.$primary-light;
 	border-radius: 5px;
 }
 
 button:hover {
 	cursor: pointer;
-	background-color: var(--primary);
+	background-color: c.$primary;
 }
 
 button:disabled {
-	background-color: #ccc;
+	background-color: c.$gray-border;
 	cursor: not-allowed;
 }
 a {
-	font-family: sans-serif;
-	color: black;
+	font-family: inherit;
+	color: c.$black;
 }
 a:visited,
 a:active {
-	color: black;
+	color: c.$black;
 }

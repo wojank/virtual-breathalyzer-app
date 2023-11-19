@@ -1,24 +1,20 @@
 @use '../mixins' as m;
+@use '../colors' as c;
 
 .faq {
 	width: 90%;
 
 	&__question {
-		@include m.typography(
-			1.2rem,
-			var(--steel-link),
-			$spacing: 0.5px,
-			$weight: 400
-		);
+		@include m.typography(1.2rem, c.$steel-link, $spacing: 0.5px, $weight: 400);
 		position: relative;
-		background-color: var(--light-bg);
+		background-color: c.$light-bg;
 		border-radius: 5px;
 		padding: 10px 20px;
 		cursor: pointer;
 		margin-bottom: 15px;
 
 		&:hover {
-			background-color: var(--bright-bg);
+			background-color: c.$bright-bg;
 		}
 	}
 
@@ -31,11 +27,11 @@
 }
 
 .active {
-	color: var(--light-bg);
-	background-color: var(--steel-link);
+	color: c.$light-bg;
+	background-color: c.$steel-link;
 
 	&:hover {
-		background-color: var(--steel-active);
+		background-color: c.$steel-active;
 	}
 }
 
