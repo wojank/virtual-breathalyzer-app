@@ -16,7 +16,8 @@ const steps: Record<
 
 const currentStep = ref('FirstStep');
 
-const gender = ref<string | any>('');
+// const gender = ref<string | any>('');
+const gender = ref<string>('');
 const weight = ref<number>(0);
 const firstStepFilled = ref<boolean>(false);
 
@@ -28,6 +29,8 @@ const receiveFirstStepData = (...args: unknown[]) => {
 
 	if (gender.value && weight.value) {
 		firstStepFilled.value = true;
+	} else {
+		firstStepFilled.value = false;
 	}
 };
 
@@ -49,6 +52,8 @@ const receivedSecondStepData = (...args: unknown[]) => {
 
 	if (power.value && volume.value && amount.value) {
 		secondStepFilled.value = true;
+	} else {
+		secondStepFilled.value = false;
 	}
 };
 
@@ -161,18 +166,20 @@ const clearForm = (): void => {
 					:class="[{ active: currentStep == 'ThirdStep' }, 'card__bar']"
 				></span>
 			</div>
-			<KeepAlive :include="['FirstStep', 'SecondStep']">
-				<component
-					:is="steps[currentStep]"
-					@firstStepData="receiveFirstStepData"
-					@secondStepData="receivedSecondStepData"
-					:promiles="promiles"
-					:grams="grams"
-					:portions="portions"
-					:time="time"
-				></component>
-			</KeepAlive>
-
+			<component
+				:is="steps[currentStep]"
+				@firstStepData="receiveFirstStepData"
+				@secondStepData="receivedSecondStepData"
+				:gender="gender"
+				:weight="weight"
+				:power="power"
+				:volume="volume"
+				:amount="amount"
+				:promiles="promiles"
+				:grams="grams"
+				:portions="portions"
+				:time="time"
+			></component>
 			<div class="card__buttons">
 				<button :disabled="currentStep == 'FirstStep'" @click="stepBack">
 					Cofnij

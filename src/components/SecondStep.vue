@@ -1,10 +1,16 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
+const { power, volume, amount } = defineProps<{
+	power: number;
+	volume: number;
+	amount: number;
+}>();
+
 const receivedType = ref<string>('');
-const receivedPower = ref<number | undefined>();
-const receivedVolume = ref<number | undefined>();
-const receivedAmount = ref<number | undefined>();
+const receivedPower = ref<number | undefined>(power);
+const receivedVolume = ref<number | undefined>(volume);
+const receivedAmount = ref<number | undefined>(amount);
 
 const validateData = (): void => {
 	if (typeof receivedPower.value === 'number') {
@@ -65,7 +71,6 @@ const alcoholType = (val: string): void => {
 
 watch(receivedType, (newVal) => {
 	alcoholType(newVal);
-	console.log('powinno działać');
 });
 
 const collectData = () => {
@@ -90,7 +95,7 @@ const collectData = () => {
 				id="alkohol"
 				name="alkohol"
 				v-model="receivedType"
-				@change="console.log(receivedType)"
+				@change="collectData"
 			>
 				<option value="">wybierz alkohol</option>
 				<option value="cydr">Cydr, Radler</option>

@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const receivedGender = ref<string>('');
-const receivedWeight = ref<number | undefined>();
+const { gender, weight } = defineProps<{
+	gender: string;
+	weight: number;
+}>();
+
+const receivedGender = ref<string>(gender);
+const receivedWeight = ref<number | undefined>(weight);
 
 const validateData = (): void => {
 	if (typeof receivedWeight.value === 'number') {
