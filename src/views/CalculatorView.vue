@@ -16,27 +16,32 @@ const steps: Record<
 
 const currentStep = ref('FirstStep');
 
-// const gender = ref<string | any>('');
 const gender = ref<string>('');
-const weight = ref<number>(0);
+const weight = ref<number | undefined>();
+const age = ref<number | undefined>();
 const firstStepFilled = ref<boolean>(false);
 
 const receiveFirstStepData = (...args: unknown[]) => {
-	const [receivedGender, receivedWeight] = args as [string, number];
+	const [receivedGender, receivedWeight, receivedAge] = args as [
+		string,
+		number,
+		number
+	];
 
 	gender.value = receivedGender;
 	weight.value = receivedWeight;
+	age.value = receivedAge;
 
-	if (gender.value && weight.value) {
+	if (gender.value && weight.value && age.value) {
 		firstStepFilled.value = true;
 	} else {
 		firstStepFilled.value = false;
 	}
 };
 
-const power = ref<number>(0);
-const volume = ref<number>(0);
-const amount = ref<number>(0);
+const power = ref<number | undefined>();
+const volume = ref<number | undefined>();
+const amount = ref<number | undefined>();
 const secondStepFilled = ref<boolean>(false);
 
 const receivedSecondStepData = (...args: unknown[]) => {
@@ -65,11 +70,20 @@ const thirstStepFinished = ref<boolean>(false);
 // const ml = volume.value * amount.value;
 
 const finalResults = (): void => {
+	if (
+		typeof weight.value == 'undefined' ||
+		typeof volume.value == 'undefined' ||
+		typeof amount.value == 'undefined' ||
+		typeof power.value == 'undefined'
+	) {
+		return;
+	}
 	// a - ilość wypitego alkoholu(g), a = ml * ( % / 100) * 0,8
 	const a = volume.value * amount.value * (power.value / 100) * 0.8;
 	// k - współczynnik {kobiety : 0,6, mężczyźni: 0,7}
 	const k = gender.value == 'mężczyzna' ? 0.7 : 0.6;
 	// w - masa ciała (kg)
+
 	const w = weight.value;
 
 	// p - zawartość alkoholu we krwi(‰), p = a / ( k * w )
@@ -122,11 +136,12 @@ watch(isActive, () => {
 
 const clearForm = (): void => {
 	gender.value = '';
-	weight.value = 0;
+	weight.value = undefined;
+	age.value = undefined;
 	firstStepFilled.value = false;
-	power.value = 0;
-	volume.value = 0;
-	amount.value = 0;
+	power.value = undefined;
+	volume.value = undefined;
+	amount.value = undefined;
 	secondStepFilled.value = false;
 	promiles.value = 0;
 	portions.value = 0;
@@ -172,6 +187,7 @@ const clearForm = (): void => {
 				@secondStepData="receivedSecondStepData"
 				:gender="gender"
 				:weight="weight"
+				:age="age"
 				:power="power"
 				:volume="volume"
 				:amount="amount"

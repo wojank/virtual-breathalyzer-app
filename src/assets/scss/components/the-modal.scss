@@ -1,5 +1,6 @@
 @use '../mixins' as m;
 @use '../colors' as c;
+@use '../fonts' as f;
 
 .modal {
 	@include m.flexbox(center, center);
@@ -20,7 +21,7 @@
 	}
 
 	&__logo {
-		font-family: var(--logo-font);
+		font-family: f.$logo-font;
 		color: c.$secondary;
 		font-size: 1.5rem;
 		display: inline-block;

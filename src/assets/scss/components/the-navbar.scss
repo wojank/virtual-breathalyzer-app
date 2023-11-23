@@ -1,5 +1,6 @@
 @use '../mixins' as m;
 @use '../colors' as c;
+@use '../fonts' as f;
 
 .header {
 	width: 100%;
@@ -10,7 +11,7 @@
 	padding: 10px 0;
 
 	&__logo {
-		font-family: var(--logo-font);
+		font-family: f.$logo-font;
 		color: c.$white;
 	}
 

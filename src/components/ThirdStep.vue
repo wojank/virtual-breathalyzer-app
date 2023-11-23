@@ -28,9 +28,8 @@ const fixedTime = computed(() => {
 </script>
 
 <template>
-	<p class="card__title">Twoje Wyniki</p>
-
 	<article class="results">
+		<p class="results__card-title">Twoje Wyniki</p>
 		<div class="results__group">
 			<p class="results__title">ilość promili w organizmie:</p>
 			<span class="results__value">{{ `${promiles.toFixed(2)} ‰` }}</span>

@@ -1,8 +1,9 @@
 @use './colors' as c;
+@use './fonts' as f;
 
 body {
 	min-height: 100vh;
-	font-family: var(--main-font);
+	font-family: f.$main-font;
 }
 
 button {

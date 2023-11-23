@@ -2,8 +2,8 @@
 <template>
 	<main class="contact">
 		<section class="text">
-			<span class="text__subtitle">jeśli masz jakieś pytania</span>
 			<h1 class="text__title">Skontaktuj się z nami</h1>
+			<h2 class="text__subtitle">jeśli masz jakieś pytania</h2>
 			<p class="text__paragraph">
 				Chcielibyśmy poznać Twoje pytania i pomóc Ci jak najlepiej możemy.
 				Wypełnij nasz formularz kontaktowy, a nasi eksperci odpowiedzą na Twoje
@@ -42,8 +42,6 @@
 				<input class="form__input" type="text" placeholder="wpisz swoje imię" />
 				<input class="form__input" type="text" placeholder="adres email" />
 				<textarea
-					name=""
-					id=""
 					cols="30"
 					rows="10"
 					placeholder="napisz do nas, a my chętnie udzielimy wszelkiej pomocy"

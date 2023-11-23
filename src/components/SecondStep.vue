@@ -2,9 +2,9 @@
 import { ref, watch } from 'vue';
 
 const { power, volume, amount } = defineProps<{
-	power: number;
-	volume: number;
-	amount: number;
+	power: number | undefined;
+	volume: number | undefined;
+	amount: number | undefined;
 }>();
 
 const receivedType = ref<string>('');
@@ -85,9 +85,8 @@ const collectData = () => {
 </script>
 
 <template>
-	<p class="card__title">określ ilość spożytego alkoholu</p>
-
 	<form class="form">
+		<p class="form__card-title">Określ ilość spożytego alkoholu</p>
 		<div class="form__group">
 			<label class="form__input-label" for="alkohol">rodzaj alkoholu</label>
 			<select

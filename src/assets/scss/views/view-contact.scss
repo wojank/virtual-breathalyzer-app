@@ -4,20 +4,21 @@
 .contact {
 	@include m.flexbox(center, center);
 	min-height: 100vh;
-	width: 80%;
+	max-width: 1250px;
 	margin: 0 auto;
+	gap: 20px;
 
 	.text {
 		width: 50%;
 
-		&__subtitle {
-			@include m.typography(2rem, c.$gray-sub, $weight: 300);
+		&__title {
+			@include m.typography(4rem, c.$black-ink, $height: 1.1, $spacing: 0.5px);
 			margin-bottom: 50px;
 		}
 
-		&__title {
-			@include m.typography(4rem, c.$black-ink, $height: 1.1, $spacing: 0.5px);
-			margin: 50px 0;
+		&__subtitle {
+			@include m.typography(2rem, c.$gray-sub, $weight: 300);
+			margin-bottom: 50px;
 		}
 
 		&__paragraph {

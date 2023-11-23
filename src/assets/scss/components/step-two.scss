@@ -1,14 +1,14 @@
 @use '../mixins' as m;
 @use '../colors' as c;
 
-.card__title {
-	@include m.typography(1.5rem, c.$gray-label, $spacing: 0.5px, $weight: 300);
-	margin: 0 0 30px 0;
-}
-
 .form {
 	@include m.flexbox(center, center, column);
 	width: 100%;
+
+	&__card-title {
+		@include m.typography(1.5rem, c.$gray-label, $spacing: 0.5px, $weight: 300);
+		margin: 0 0 30px 0;
+	}
 
 	&__group {
 		@include m.flexbox(flex-start, center, column);
