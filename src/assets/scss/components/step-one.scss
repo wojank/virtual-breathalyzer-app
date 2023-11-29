@@ -88,4 +88,12 @@
 			border: 2px solid c.$secondary;
 		}
 	}
+	&__err-msg {
+		font-size: 0.8rem;
+		color: rgb(253, 149, 149);
+	}
+
+	.error {
+		border: 2px solid rgb(253, 149, 149);
+	}
 }

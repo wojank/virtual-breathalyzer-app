@@ -22,17 +22,18 @@ const age = ref<number | undefined>();
 const firstStepFilled = ref<boolean>(false);
 
 const receiveFirstStepData = (...args: unknown[]) => {
-	const [receivedGender, receivedWeight, receivedAge] = args as [
+	const [receivedGender, receivedWeight, receivedAge, formValid] = args as [
 		string,
 		number,
-		number
+		number,
+		boolean
 	];
 
 	gender.value = receivedGender;
 	weight.value = receivedWeight;
 	age.value = receivedAge;
 
-	if (gender.value && weight.value && age.value) {
+	if (formValid) {
 		firstStepFilled.value = true;
 	} else {
 		firstStepFilled.value = false;
@@ -45,17 +46,18 @@ const amount = ref<number | undefined>();
 const secondStepFilled = ref<boolean>(false);
 
 const receivedSecondStepData = (...args: unknown[]) => {
-	const [receivedPower, receivedVolume, receivedAmount] = args as [
+	const [receivedPower, receivedVolume, receivedAmount, formValid] = args as [
 		number,
 		number,
-		number
+		number,
+		boolean
 	];
 
 	power.value = receivedPower;
 	volume.value = receivedVolume;
 	amount.value = receivedAmount;
 
-	if (power.value && volume.value && amount.value) {
+	if (formValid) {
 		secondStepFilled.value = true;
 	} else {
 		secondStepFilled.value = false;
@@ -130,7 +132,6 @@ watch(isActive, () => {
 		grams.value = 0;
 		portions.value = 0;
 		time.value = '';
-		//ten fragment chyba zbędny
 	}
 });
 
