@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue';
 import FirstStep from '../components/FirstStep.vue';
 import SecondStep from '../components/SecondStep.vue';
 import ThirdStep from '../components/ThirdStep.vue';
 
-import { ref, watch } from 'vue';
+type InputValue = number | undefined;
 
 const steps: Record<
 	string,
@@ -17,8 +18,9 @@ const steps: Record<
 const currentStep = ref('FirstStep');
 
 const gender = ref<string>('');
-const weight = ref<number | undefined>();
-const age = ref<number | undefined>();
+const weight = ref<InputValue>();
+const age = ref<InputValue>();
+
 const firstStepFilled = ref<boolean>(false);
 
 const receiveFirstStepData = (...args: unknown[]) => {
@@ -40,9 +42,10 @@ const receiveFirstStepData = (...args: unknown[]) => {
 	}
 };
 
-const power = ref<number | undefined>();
-const volume = ref<number | undefined>();
-const amount = ref<number | undefined>();
+const power = ref<InputValue>();
+const volume = ref<InputValue>();
+const amount = ref<InputValue>();
+
 const secondStepFilled = ref<boolean>(false);
 
 const receivedSecondStepData = (...args: unknown[]) => {
@@ -64,12 +67,11 @@ const receivedSecondStepData = (...args: unknown[]) => {
 	}
 };
 
-const promiles = ref<number | string>();
-const grams = ref<number | string>();
-const portions = ref<number | string>();
-const time = ref<number | string>();
+const promiles = ref<number>();
+const grams = ref<number>();
+const portions = ref<number>();
+const time = ref<number>();
 const thirstStepFinished = ref<boolean>(false);
-// const ml = volume.value * amount.value;
 
 const finalResults = (): void => {
 	if (
@@ -80,12 +82,15 @@ const finalResults = (): void => {
 	) {
 		return;
 	}
+
 	// a - ilość wypitego alkoholu(g), a = ml * ( % / 100) * 0,8
+	// ml = volume * amount;
 	const a = volume.value * amount.value * (power.value / 100) * 0.8;
+
 	// k - współczynnik {kobiety : 0,6, mężczyźni: 0,7}
 	const k = gender.value == 'mężczyzna' ? 0.7 : 0.6;
-	// w - masa ciała (kg)
 
+	// w - masa ciała (kg)
 	const w = weight.value;
 
 	// p - zawartość alkoholu we krwi(‰), p = a / ( k * w )
@@ -116,22 +121,22 @@ const stepBack = () => {
 	thirstStepFinished ? (thirstStepFinished.value = false) : '';
 };
 
-const isActive = ref<boolean>(false);
-
 watch(currentStep, () => {
 	currentStep.value === 'ThirdStep'
 		? (isActive.value = true)
 		: (isActive.value = false);
 });
 
+const isActive = ref<boolean>(false);
+
 watch(isActive, () => {
 	if (isActive) {
 		finalResults();
 	} else {
-		promiles.value = '';
+		promiles.value = 0;
 		grams.value = 0;
 		portions.value = 0;
-		time.value = '';
+		time.value = 0;
 	}
 });
 

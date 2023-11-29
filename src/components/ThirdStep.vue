@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+
 const { promiles, grams, portions, time } = defineProps<{
 	promiles: number;
 	grams: number;

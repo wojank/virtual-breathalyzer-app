@@ -1,45 +1,39 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
+type InputValue = number | undefined;
+type ValidData = boolean | null;
+
 const { gender, weight, age } = defineProps<{
 	gender: string;
-	weight: number | undefined;
-	age: number | undefined;
+	weight: InputValue;
+	age: InputValue;
 }>();
 
 const emit = defineEmits<{
 	(
 		e: 'firstStepData',
 		receivedGender: string,
-		receivedWeight: number | undefined,
-		receivedAge: number | undefined,
+		receivedWeight: InputValue,
+		receivedAge: InputValue,
 		formValid: boolean
 	): void;
 	(e: 'secondStepData'): void;
 }>();
 
 const receivedGender = ref<string>(gender);
-const receivedWeight = ref<number | undefined>(weight);
-const receivedAge = ref<number | undefined>(age);
+const receivedWeight = ref<InputValue>(weight);
+const receivedAge = ref<InputValue>(age);
 
-// const errorGender = ref('');
 const errorWeight = ref('');
 const errorAge = ref('');
 
-// const isGenderValid = ref<boolean | null>(null);
-const isWeightValid = ref<boolean | null>(null);
-const isAgeValid = ref<boolean | null>(null);
+const isWeightValid = ref<ValidData>(null);
+const isAgeValid = ref<ValidData>(null);
 
 const formValid = ref(false);
 
 const validateData = (): void => {
-	// if (receivedGender.value.length === 0) {
-	// 	errorGender.value = 'musisz wskazać swoją płeć';
-	// 	isGenderValid.value = false;
-	// } else {
-	// 	isGenderValid.value = true;
-	// }
-
 	if (typeof receivedWeight.value === 'number') {
 		if (receivedWeight.value.toString().startsWith('0')) {
 			errorWeight.value = 'waga nie może zaczynać się od 0';
@@ -56,6 +50,7 @@ const validateData = (): void => {
 		errorWeight.value = '';
 		isWeightValid.value = false;
 	}
+
 	if (typeof receivedAge.value === 'number') {
 		if (receivedAge.value.toString().startsWith('0')) {
 			errorAge.value = 'podany wiek nie może zaczynać się od 0';
@@ -80,13 +75,9 @@ const validateData = (): void => {
 		? (formValid.value = true)
 		: (formValid.value = false);
 };
-// const isValid = ref(false);
 
 const collectData = () => {
 	validateData();
-	// if(isValid){
-
-	// }
 	emit(
 		'firstStepData',
 		receivedGender.value,

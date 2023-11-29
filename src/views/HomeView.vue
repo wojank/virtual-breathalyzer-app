@@ -5,12 +5,12 @@ import TheModal from '../components/TheModal.vue';
 	<TheModal />
 	<main class="home">
 		<section class="hero">
-			<h1 class="hero__header">Pij Odpowiedzialnie</h1>
+			<h1 class="hero__header">Kampania Pij z Głową</h1>
 			<p class="hero__paragraph">
-				Strona jest częścią kampanii pt.: "<strong>Pij odpowiedzialnie</strong
-				>”. Możesz tu sprawdzić przy pomocy wirtualnego alkomatu zawartość
-				alkoholu w organizmie, zanim usiądziesz za kierownicą lub zaplanujesz
-				jakąkolwiek aktywność wymagającą odpowiedzialności.
+				Strona jest częścią kampanii pt.: "<strong>Pij z Głową</strong>”. Możesz
+				tu sprawdzić przy pomocy wirtualnego alkomatu zawartość alkoholu w
+				organizmie, zanim usiądziesz za kierownicą lub zaplanujesz jakąkolwiek
+				aktywność wymagającą odpowiedzialności.
 			</p>
 			<RouterLink class="hero__link" to="/calculator">
 				<button class="hero__btn">Sprawdź</button>

@@ -1,103 +1,40 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 
+type InputValue = number | undefined;
+type ValidData = boolean | null;
+
 const { power, volume, amount } = defineProps<{
-	power: number | undefined;
-	volume: number | undefined;
-	amount: number | undefined;
+	power: InputValue;
+	volume: InputValue;
+	amount: InputValue;
 }>();
 
 const emit = defineEmits<{
 	(
 		e: 'secondStepData',
-		receivedPower: number | undefined,
-		receivedVolume: number | undefined,
-		receivedAmount: number | undefined,
+		receivedPower: InputValue,
+		receivedVolume: InputValue,
+		receivedAmount: InputValue,
 		formValid: boolean
 	): void;
 	(e: 'firstStepData'): void;
 }>();
 
-const receivedType = ref<string>('');
-const receivedPower = ref<number | undefined>(power);
-const receivedVolume = ref<number | undefined>(volume);
-const receivedAmount = ref<number | undefined>(amount);
+const receivedType = ref('');
+const receivedPower = ref<InputValue>(power);
+const receivedVolume = ref<InputValue>(volume);
+const receivedAmount = ref<InputValue>(amount);
 
 const errorPower = ref('');
 const errorVolume = ref('');
 const errorAmount = ref('');
 
-const isPowerValid = ref<null | boolean>(null);
-const isVolumeValid = ref<null | boolean>(null);
-const isAmountValid = ref<null | boolean>(null);
+const isPowerValid = ref<ValidData>(null);
+const isVolumeValid = ref<ValidData>(null);
+const isAmountValid = ref<ValidData>(null);
 
 const formValid = ref(false);
-
-// interface InputData {
-// 	value: number | undefined,
-// 	errMsg: string,
-// 	isValid: boolean | null
-// }
-// const Power = ref<StepData>({
-// 	val: volume,
-// 	errMsg: '',
-// 	isValid: false,
-// })
-
-const validateData = (): void => {
-	if (typeof receivedPower.value === 'number') {
-		if (receivedPower.value.toString().startsWith('0')) {
-			errorPower.value = 'musisz podać minimum 1 procent';
-			receivedPower.value = undefined;
-			isPowerValid.value = false;
-		} else if (receivedPower.value > 95) {
-			errorPower.value = 'podana wartość nie może być większa, niż 95';
-			isPowerValid.value = false;
-		} else {
-			errorPower.value = '';
-			isPowerValid.value = true;
-		}
-	} else if (typeof receivedPower.value === 'string') {
-		errorPower.value = '';
-		isPowerValid.value = false;
-	}
-	if (typeof receivedVolume.value === 'number') {
-		if (receivedVolume.value.toString().startsWith('0')) {
-			errorVolume.value = 'musisz podać więcej niż 0 ml';
-			receivedVolume.value = undefined;
-			isVolumeValid.value = false;
-		} else if (receivedVolume.value > 750) {
-			errorVolume.value = 'możesz podać maksymalnie 750 ml';
-			isVolumeValid.value = false;
-		} else {
-			errorVolume.value = '';
-			isVolumeValid.value = true;
-		}
-	} else if (typeof receivedVolume.value === 'string') {
-		errorVolume.value = '';
-		isVolumeValid.value = false;
-	}
-	if (typeof receivedAmount.value === 'number') {
-		if (receivedAmount.value.toString().startsWith('0')) {
-			errorAmount.value = 'musisz podać przynajmniej 1 porcję';
-			receivedAmount.value = undefined;
-			isAmountValid.value = false;
-		} else if (receivedAmount.value > 50) {
-			errorAmount.value = 'maksymalnie możesz podać 50 porcjii';
-			isAmountValid.value = false;
-		} else {
-			errorAmount.value = '';
-			isAmountValid.value = true;
-		}
-	} else if (typeof receivedAmount.value === 'string') {
-		errorAmount.value = '';
-		isAmountValid.value = false;
-	}
-
-	isPowerValid.value && isVolumeValid.value && isAmountValid.value
-		? (formValid.value = true)
-		: (formValid.value = false);
-};
 
 const alcoholType = (val: string): void => {
 	switch (val) {
@@ -134,6 +71,63 @@ const alcoholType = (val: string): void => {
 watch(receivedType, (newVal) => {
 	alcoholType(newVal);
 });
+
+const validateData = (): void => {
+	if (typeof receivedPower.value === 'number') {
+		if (receivedPower.value.toString().startsWith('0')) {
+			errorPower.value = 'musisz podać minimum 1 procent';
+			receivedPower.value = undefined;
+			isPowerValid.value = false;
+		} else if (receivedPower.value > 95) {
+			errorPower.value = 'podana wartość nie może być większa, niż 95';
+			isPowerValid.value = false;
+		} else {
+			errorPower.value = '';
+			isPowerValid.value = true;
+		}
+	} else if (typeof receivedPower.value === 'string') {
+		errorPower.value = '';
+		isPowerValid.value = false;
+	}
+
+	if (typeof receivedVolume.value === 'number') {
+		if (receivedVolume.value.toString().startsWith('0')) {
+			errorVolume.value = 'musisz podać więcej niż 0 ml';
+			receivedVolume.value = undefined;
+			isVolumeValid.value = false;
+		} else if (receivedVolume.value > 750) {
+			errorVolume.value = 'możesz podać maksymalnie 750 ml';
+			isVolumeValid.value = false;
+		} else {
+			errorVolume.value = '';
+			isVolumeValid.value = true;
+		}
+	} else if (typeof receivedVolume.value === 'string') {
+		errorVolume.value = '';
+		isVolumeValid.value = false;
+	}
+
+	if (typeof receivedAmount.value === 'number') {
+		if (receivedAmount.value.toString().startsWith('0')) {
+			errorAmount.value = 'musisz podać przynajmniej 1 porcję';
+			receivedAmount.value = undefined;
+			isAmountValid.value = false;
+		} else if (receivedAmount.value > 50) {
+			errorAmount.value = 'maksymalnie możesz podać 50 porcjii';
+			isAmountValid.value = false;
+		} else {
+			errorAmount.value = '';
+			isAmountValid.value = true;
+		}
+	} else if (typeof receivedAmount.value === 'string') {
+		errorAmount.value = '';
+		isAmountValid.value = false;
+	}
+
+	isPowerValid.value && isVolumeValid.value && isAmountValid.value
+		? (formValid.value = true)
+		: (formValid.value = false);
+};
 
 const collectData = () => {
 	validateData();
