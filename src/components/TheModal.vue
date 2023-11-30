@@ -31,7 +31,7 @@ const closeModal = (x: string): void => {
 	<div v-if="isVisible" class="modal">
 		<section class="modal__window">
 			<span class="modal__logo">Logo Kampanii</span>
-			<div>
+			<div class="modal__main">
 				<h1 class="modal__title">Czy jesteś osobą pełnoletnią?</h1>
 				<p class="modal__subtitle">
 					Zanim zapoznasz się z treścią naszej strony odpowiedz na pytanie

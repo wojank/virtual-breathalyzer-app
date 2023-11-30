@@ -31,13 +31,17 @@
 		box-shadow: 0px 0px 10px 2px c.$gray-shadow;
 	}
 
+	&__main {
+		padding: 30px;
+	}
+
 	&__title {
 		@include m.typography(4rem, c.$black-ink, 1.1, 0.5px);
-		margin: 50px 0 20px 0;
+		margin: 50px 0 40px 0;
 	}
 
 	&__subtitle {
-		@include m.typography(2rem, c.$gray-paragraph);
+		@include m.typography(1.5rem, c.$gray-paragraph, $weight: 300);
 		margin-bottom: 50px;
 	}
 
@@ -48,5 +52,6 @@
 
 	&__btn {
 		width: 50%;
+		padding: 20px 0;
 	}
 }
